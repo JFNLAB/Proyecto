@@ -23,11 +23,12 @@ public class Base {
             stmt = c.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS EMPLEADOS " +
                          "(ID INT PRIMARY KEY NOT NULL," +
+                         " CODIGO DOUBLE NOT NULL, " +
                          " NOMBRE TEXT NOT NULL, " + 
                          " APELLIDO TEXT NOT NULL, " +
                          " EMAIL TEXT NOT NULL, " +
                          " DIRECCION CHAR(50), " + 
-                         " SALARIO REAL)"; 
+                         " SALARIO FLOAT NOT NULL)"; 
             stmt.executeUpdate(sql);
             stmt.close();
             c.close();
