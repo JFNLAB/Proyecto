@@ -11,6 +11,8 @@ package proyecto;
  */
 public class Principal extends javax.swing.JFrame {
 
+    Base base = new Base();
+
     /**
      * Creates new form Main
      */
