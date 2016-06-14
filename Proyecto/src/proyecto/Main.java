@@ -10,7 +10,7 @@ package proyecto;
  * @author julian
  */
 public class Main extends javax.swing.JFrame {
-
+    Base base = new Base();
     /**
      * Creates new form Main
      */
