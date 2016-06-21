@@ -198,7 +198,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
         String salario = txbSalario.getText();
         boolean a = this.db.Guardar(nombre, apellido, edad, email, direccion, salario);
         if(a){
-            System.out.println("puta");
+            System.out.println("Persona CargadaxD");
         }
         
         

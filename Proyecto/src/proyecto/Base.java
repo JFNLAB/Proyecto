@@ -24,12 +24,12 @@ public class Base {
             String sql = "CREATE TABLE IF NOT EXISTS EMPLEADOS "
                     + "(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                     + " CODIGO INTEGER NOT NULL, "
-                    + " NOMBRE CHAR(50) NOT NULL, "
-                    + " APELLIDO CHAR(50) NOT NULL, "
-                    + " EDAD CHAR(50) NOT NULL, "
-                    + " EMAIL CHAR(50) NOT NULL, "
-                    + " DIRECCION CHAR(50), "
-                    + " SALARIO CHAR(50) NOT NULL)";
+                    + " NOMBRE TEXT NOT NULL, "
+                    + " APELLIDO TEXT NOT NULL, "
+                    + " EDAD TEXT NOT NULL,"
+                    + " EMAIL TEXT NOT NULL, "
+                    + " DIRECCION TEXT NOT NULL, "
+                    + " SALARIO TEXT NOT NULL)";
             stmt.executeUpdate(sql);
 
         } catch (Exception e) {
@@ -41,14 +41,7 @@ public class Base {
     public boolean Guardar(String nombre, String apellido, String edad, String email, String direccion, String salario) {
         boolean ret=false;
         try {
-            stmt.execute("INSERT INTO EMPLEADOS (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES ("
-                    + 00000
-                    + nombre
-                    + apellido
-                    + edad
-                    + email
-                    + direccion
-                    + salario+")");
+            stmt.execute("INSERT INTO empleados (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES(123, '"+nombre+"', '"+apellido+"', '"+edad+"', '"+email+"', '"+direccion+"', '"+salario+"')");
                     ret=true;
         }catch(SQLException e){
             System.out.println(e.getMessage());
