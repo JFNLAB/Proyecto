@@ -7,6 +7,7 @@ package proyecto;
 
 import java.io.IOException;
 import java.math.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -80,7 +81,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
             }
         });
 
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Atrás");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -204,15 +205,21 @@ public class Cargar_empleado extends javax.swing.JFrame {
         int numRandom = (int) Math.floor(Math.random() * (000000000 - 999999999) + 999999999);
         String codigo = numRandom + "";
         boolean a = this.db.Guardar(codigo, nombre, apellido, edad, email, direccion, salario);
+        txbNombre.setText("");
+        txbApellido.setText("");
+        txbEdad.setText("");
+        txbEmail.setText("");
+        txbDireccion.setText("");
+        txbSalario.setText(""); 
         if (a) {
-            System.out.println("Persona Cargada");
+            JOptionPane.showConfirmDialog(this, "Empleado cargado con exito");
         } else {
-            System.out.println("ERROR");
+             JOptionPane.showConfirmDialog(this, "ERROR AL CARGAR EMPLEADO");
         }
         Barras barrita = new Barras();
         try {
-            barrita.CreateBarcode(codigo,nombre,apellido);
-        }catch(IOException e){
+            barrita.CreateBarcode(codigo, nombre, apellido);
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
