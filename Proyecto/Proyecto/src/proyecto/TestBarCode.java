@@ -32,9 +32,20 @@ public class TestBarCode {
         BufferedImage bufferedImage = barcode.draw(new BufferedImage(400, 400, BufferedImage.TYPE_INT_RGB));
 
         // guardar en disco como png
-        File file = new File("Escritorio/codebar.png");
+<<<<<<< HEAD
+
+        File file = new File("codebar.png");
         ImageIO.write(bufferedImage, "png", file);
+
+    //    File file = new File("codebar.png");
+      //  ImageIO.write(bufferedImage, "png", file);
+=======
+        File file = new File("codebar.png");
+        ImageIO.write(bufferedImage, "png", file);
+>>>>>>> 439aef4a966e7e004f5898d311e94184e8929257
+
 
     }
 
 }
+

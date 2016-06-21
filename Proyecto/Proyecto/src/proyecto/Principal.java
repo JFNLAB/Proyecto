@@ -11,12 +11,14 @@ package proyecto;
  */
 public class Principal extends javax.swing.JFrame {
 
-
+    private Base db;
     /**
      * Creates new form Main
      */
-    public Principal() {
+    public Principal(Base db) {
         initComponents();
+        this.db=db;
+        
     }
 
     /**
@@ -106,7 +108,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        Cargar_empleado cargemp = new Cargar_empleado();
+        Cargar_empleado cargemp = new Cargar_empleado(this.db);
         cargemp.setVisible(true);
     }//GEN-LAST:event_btn1ActionPerformed
 
