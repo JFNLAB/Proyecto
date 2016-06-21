@@ -10,12 +10,13 @@ package proyecto;
  * @author feli
  */
 public class Cargar_empleado extends javax.swing.JFrame {
-
+    private Base db;
     /**
      * Creates new form Cargar_empleado
      */
-    public Cargar_empleado() {
+    public Cargar_empleado(Base db) {
         initComponents();
+        this.db=db;
     }
 
     /**
@@ -39,10 +40,10 @@ public class Cargar_empleado extends javax.swing.JFrame {
         txbEdad = new javax.swing.JTextField();
         txbDireccion = new javax.swing.JTextField();
         txbSalario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txbEmail1 = new javax.swing.JTextField();
+        txbEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,25 +75,25 @@ public class Cargar_empleado extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Guardar persona");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setText("Guardar persona");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Salario ($):");
 
-        txbEmail1.addActionListener(new java.awt.event.ActionListener() {
+        txbEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txbEmail1ActionPerformed(evt);
+                txbEmailActionPerformed(evt);
             }
         });
 
@@ -108,7 +109,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txbEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -127,9 +128,9 @@ public class Cargar_empleado extends javax.swing.JFrame {
                                     .addComponent(txbNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jButton1)
+                        .addComponent(btnCancelar)
                         .addGap(44, 44, 44)
-                        .addComponent(jButton2)
+                        .addComponent(btnGuardar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -160,25 +161,24 @@ public class Cargar_empleado extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txbEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnGuardar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cargar_empleado cargemp = new Cargar_empleado();
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txbApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbApellidoActionPerformed
         // TODO add your handling code here:
@@ -188,24 +188,32 @@ public class Cargar_empleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txbSalarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         String nombre = txbNombre.getText();
         String apellido = txbApellido.getText();
-        String email = txbSalario.getText();
+        String edad = txbEdad.getText();
+        String email = txbEmail.getText();
         String direccion = txbDireccion.getText();
         String salario = txbSalario.getText();
+        boolean a = this.db.Guardar(nombre, apellido, edad, email, direccion, salario);
+        if(a){
+            System.out.println("puta");
+        }
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txbNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txbNombreActionPerformed
 
-    private void txbEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbEmail1ActionPerformed
+    private void txbEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txbEmail1ActionPerformed
+    }//GEN-LAST:event_txbEmailActionPerformed
 
     
     /**
@@ -214,8 +222,8 @@ public class Cargar_empleado extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -227,7 +235,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
     private javax.swing.JTextField txbApellido;
     private javax.swing.JTextField txbDireccion;
     private javax.swing.JTextField txbEdad;
-    private javax.swing.JTextField txbEmail1;
+    private javax.swing.JTextField txbEmail;
     private javax.swing.JTextField txbNombre;
     private javax.swing.JTextField txbSalario;
     // End of variables declaration//GEN-END:variables

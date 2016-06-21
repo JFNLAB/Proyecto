@@ -10,14 +10,15 @@ package proyecto;
  * @author julian
  */
 public class Main {
+    private static Base db = new Base();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Principal ventana = new Principal();
+        Principal ventana = new Principal(db);
         ventana.setVisible(true);
-        Base db = new Base();
+        
     }
     
     
