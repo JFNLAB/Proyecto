@@ -28,19 +28,11 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="lbl1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="btn1" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btn2" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btn3" alignment="1" max="32767" attributes="0"/>
-=======
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="btn3" alignment="1" max="32767" attributes="0"/>
                   <Component id="btn2" alignment="1" max="32767" attributes="0"/>
                   <Component id="btn1" alignment="1" max="32767" attributes="0"/>
->>>>>>> 5c212d07f3e3f292809999f17d71a8ba5d38b194
                   <Component id="btn4" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
