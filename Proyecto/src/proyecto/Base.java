@@ -23,7 +23,7 @@ public class Base {
             stmt = c.createStatement();
             String sql = "CREATE TABLE IF NOT EXISTS EMPLEADOS "
                     + "(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
-                    + " CODIGO INTEGER NOT NULL, "
+                    + " CODIGO TEXT NOT NULL, "
                     + " NOMBRE TEXT NOT NULL, "
                     + " APELLIDO TEXT NOT NULL, "
                     + " EDAD TEXT NOT NULL,"
@@ -38,10 +38,10 @@ public class Base {
         }
     }
 
-    public boolean Guardar(String nombre, String apellido, String edad, String email, String direccion, String salario) {
+    public boolean Guardar(String codigo,String nombre, String apellido, String edad, String email, String direccion, String salario) {
         boolean ret=false;
         try {
-            stmt.execute("INSERT INTO empleados (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES(123, '"+nombre+"', '"+apellido+"', '"+edad+"', '"+email+"', '"+direccion+"', '"+salario+"')");
+            stmt.execute("INSERT INTO empleados (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES('"+codigo+"', '"+nombre+"', '"+apellido+"', '"+edad+"', '"+email+"', '"+direccion+"', '"+salario+"')");
                     ret=true;
         }catch(SQLException e){
             System.out.println(e.getMessage());

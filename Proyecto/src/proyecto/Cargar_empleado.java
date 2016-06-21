@@ -5,18 +5,23 @@
  */
 package proyecto;
 
+import java.io.IOException;
+import java.math.*;
+
 /**
  *
  * @author feli
  */
 public class Cargar_empleado extends javax.swing.JFrame {
+
     private Base db;
+
     /**
      * Creates new form Cargar_empleado
      */
     public Cargar_empleado(Base db) {
         initComponents();
-        this.db=db;
+        this.db = db;
     }
 
     /**
@@ -196,15 +201,22 @@ public class Cargar_empleado extends javax.swing.JFrame {
         String email = txbEmail.getText();
         String direccion = txbDireccion.getText();
         String salario = txbSalario.getText();
-        boolean a = this.db.Guardar(nombre, apellido, edad, email, direccion, salario);
-        if(a){
-            System.out.println("Persona CargadaxD");
+        int numRandom = (int) Math.floor(Math.random() * (000000000 - 999999999) + 999999999);
+        String codigo = numRandom + "";
+        boolean a = this.db.Guardar(codigo, nombre, apellido, edad, email, direccion, salario);
+        if (a) {
+            System.out.println("Persona Cargada");
+        } else {
+            System.out.println("ERROR");
         }
-        
-        
-        
-        
-        
+        Barras barrita = new Barras();
+        try {
+            barrita.CreateBarcode(codigo,nombre,apellido);
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txbNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbNombreActionPerformed
@@ -215,11 +227,9 @@ public class Cargar_empleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txbEmailActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

@@ -20,11 +20,29 @@ import net.sourceforge.jbarcodebean.model.Interleaved25;
  * @author julian
  */
 public class Barras {
-    
-    /*public Empleado CrearCodigo (){
+
+    public void CreateBarcode(String codigo, String nombre, String apellido) throws IOException {
+
         JBarcodeBean barcode = new JBarcodeBean();
+
+        // nuestro tipo de codigo de barra
         barcode.setCodeType(new Interleaved25());
-    }return null;
-    */
-    
+        //barcode.setCodeType(new Code39());
+
+        // nuestro valor a codificar y algunas configuraciones mas
+        barcode.setCode(codigo);
+        barcode.setCheckDigit(true);
+
+        BufferedImage bufferedImage = barcode.draw(new BufferedImage(200, 100, BufferedImage.TYPE_INT_RGB));
+
+        // guardar en disco como png
+        File file = new File(nombre+apellido+".png");
+        try {
+            ImageIO.write(bufferedImage, "png", file);
+        } catch (IOException e){
+            throw e;
+        }
+    }
+
 }
+//oliumaz
