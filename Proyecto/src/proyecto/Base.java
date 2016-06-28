@@ -48,4 +48,16 @@ public class Base {
             ret=false;
         }return ret;
     }
+
+/*    
+    public void MostrarLista(javax.swing.JList<String> list){
+        try{
+            ResultSet rs = stmt.executeQuery("SELECT NOMBRE, APELLIDO FROM empleados");
+            list.add(rs.getInt("NOMBRE"))
+        }catch(SQLException e){
+            
+        }
 }
+*/
+}
+

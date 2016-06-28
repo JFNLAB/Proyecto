@@ -117,7 +117,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        // TODO add your handling code here:
+        Datos_empleado dtEmp= new Datos_empleado(this.db);
+        dtEmp.setVisible(true);
     }//GEN-LAST:event_btn5ActionPerformed
 
     /**
