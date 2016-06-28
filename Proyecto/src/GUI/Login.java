@@ -3,20 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto;
+package GUI;
+
+import clases.Base;
 
 /**
  *
  * @author feli
  */
-public class Datos_empleado extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
+
     private Base db;
     /**
-     * Creates new form Datos_empleado
+     * Creates new form Login
      */
-    public Datos_empleado(Base db) {
+    public Login(Base db) {
         initComponents();
-        this.db=db;
+        this.db = db;
     }
 
     /**
@@ -28,61 +31,58 @@ public class Datos_empleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAct = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lista = new javax.swing.JList<>();
+        txbVerificar = new javax.swing.JTextField();
+        btnVerificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Datos del Empleado");
+        setTitle("Log in");
 
-        btnAct.setText("Actualizar");
-        btnAct.addActionListener(new java.awt.event.ActionListener() {
+        btnVerificar.setText("Verificar");
+        btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActActionPerformed(evt);
+                btnVerificarActionPerformed(evt);
             }
         });
-
-        jScrollPane2.setViewportView(lista);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(559, Short.MAX_VALUE)
-                .addComponent(btnAct)
-                .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(txbVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAct)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txbVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(btnVerificar)
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-                
-    }//GEN-LAST:event_btnActActionPerformed
+    private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
+        // TODO add your handling code here:
+        String Numero_a_verificar = txbVerificar.getText();
+        this.db.Entrar(Numero_a_verificar);
+    }//GEN-LAST:event_btnVerificarActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAct;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<String> lista;
+    private javax.swing.JButton btnVerificar;
+    private javax.swing.JTextField txbVerificar;
     // End of variables declaration//GEN-END:variables
-    
-    
 }

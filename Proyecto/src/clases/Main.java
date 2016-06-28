@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto;
+package clases;
+
+import GUI.Principal;
+import clases.Base;
+import clases.Barras;
 
 /**
  *
