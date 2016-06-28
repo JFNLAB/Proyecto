@@ -216,6 +216,11 @@ public class Cargar_empleado extends javax.swing.JFrame {
             }catch(NumberFormatException e){
                 JOptionPane.showMessageDialog(this, "ERROR - Salario no es un numero válido");
             }
+            try{
+                float c = Integer.parseInt(edad);
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this, "ERROR - Edad no es un numero válido");
+            }
             boolean a = this.db.Guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario());
             txbNombre.setText("");
             txbApellido.setText("");
@@ -224,15 +229,18 @@ public class Cargar_empleado extends javax.swing.JFrame {
             txbDireccion.setText("");
             txbSalario.setText("");
             if (a) {
-                JOptionPane.showMessageDialog(this, "Empleado cargado con exito");
-            } else {
-                JOptionPane.showMessageDialog(this, "ERROR AL CARGAR EMPLEADO");
-            }
-            try {
+                try {
                 this.barrita.CreateBarcode(codigo, nombre, apellido);
             } catch (IOException e) {
                 System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(this, "ERROR AL CREAR CODIGO");
             }
+                JOptionPane.showMessageDialog(this, "Empleado cargado con exito");
+            } else {
+                
+                JOptionPane.showMessageDialog(this, "ERROR AL CARGAR EMPLEADO");
+            }
+            
         }
 
 
