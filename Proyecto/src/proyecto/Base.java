@@ -38,29 +38,31 @@ public class Base {
         }
     }
 
-    public boolean Guardar(String codigo,String nombre, String apellido, String edad, String email, String direccion, String salario) {
-        boolean ret=false;
+    public boolean Guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario) {
+        boolean ret = false;
         try {
-            stmt.execute("INSERT INTO empleados (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES('"+codigo+"', '"+nombre+"', '"+apellido+"', '"+edad+"', '"+email+"', '"+direccion+"', '"+salario+"')");
-                    ret=true;
-        }catch(SQLException e){
-            System.out.println(e.getMessage());
-            ret=false;
-        }return ret;
-    }
-
-    
-    public void MostrarLista(){
-        try{
-            ResultSet rs = stmt.executeQuery("SELECT NOMBRE, APELLIDO FROM EMPLEADO");
-            System.out.println(rs);
-        }catch(SQLException e){
-            
+            stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario + "')");
+            ret = true;
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            ret = false;
         }
-}
+        return ret;
+    }
 
-    public void Entrar(String num){
-        
+    public void MostrarLista() {
+        try {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
+            while (rs.next()) {
+                String auxnombre= rs.getString("NOMBRE");
+                System.out.println(auxnombre);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName()+": "+e.getMessage());
+        }
+    }
+
+    public void Entrar(String num) {
+
     }
 }
-
