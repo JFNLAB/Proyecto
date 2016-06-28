@@ -5,7 +5,7 @@
  */
 package clases;
 
-import GUI.Principal;
+import gui.Principal;
 import clases.Base;
 import clases.Barras;
 

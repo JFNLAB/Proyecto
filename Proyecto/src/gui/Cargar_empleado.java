@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package gui;
 
+import clases.Empleado;
 import clases.Base;
 import clases.Barras;
 import java.io.IOException;
