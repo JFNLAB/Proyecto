@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 
 import net.sourceforge.jbarcodebean.BarcodeException;
 import net.sourceforge.jbarcodebean.JBarcodeBean;
-import net.sourceforge.jbarcodebean.model.Interleaved25;
+import net.sourceforge.jbarcodebean.model.*;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Barras {
         JBarcodeBean barcode = new JBarcodeBean();
 
         // nuestro tipo de codigo de barra
-        barcode.setCodeType(new Interleaved25());
+        barcode.setCodeType(new Code128());
         //barcode.setCodeType(new Code39());
 
         // nuestro valor a codificar y algunas configuraciones mas
@@ -36,7 +36,7 @@ public class Barras {
         BufferedImage bufferedImage = barcode.draw(new BufferedImage(200, 100, BufferedImage.TYPE_INT_RGB));
 
         // guardar en disco como png
-        File file = new File(nombre+apellido+".png");
+        File file = new File(nombre+"_"+apellido+".png");
         try {
             ImageIO.write(bufferedImage, "png", file);
         } catch (IOException e){
@@ -45,4 +45,4 @@ public class Barras {
     }
 
 }
-//oliumaz
+

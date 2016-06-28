@@ -11,14 +11,17 @@ package proyecto;
  */
 public class Principal extends javax.swing.JFrame {
     Base base = new Base();
+    Barras codigo = new Barras();
     private Base db;
+    private Barras barra;
 
     /**
      * Creates new form Main
      */
-    public Principal(Base db) {
+    public Principal(Base db,Barras barra) {
         initComponents();
-        this.db=db;
+        this.db = db;
+        this.barra = barra;
     }
 
     /**
@@ -39,14 +42,14 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Registro");
 
-        btn1.setText("Cargar empleados");
+        btn1.setText("Cargar empleado");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
             }
         });
 
-        btn2.setText("Login");
+        btn2.setText("Entrar");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
@@ -54,6 +57,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnInf.setText("Ver informe");
+        btnInf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +111,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-       Login login = new Login();
+       Login login = new Login(this.db);
         login.setVisible(true);
     }//GEN-LAST:event_btn2ActionPerformed
 
@@ -112,7 +120,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        Cargar_empleado cargemp = new Cargar_empleado(this.db);
+        Cargar_empleado cargemp = new Cargar_empleado(this.db, this.barra);
         cargemp.setVisible(true);
     }//GEN-LAST:event_btn1ActionPerformed
 
@@ -120,6 +128,11 @@ public class Principal extends javax.swing.JFrame {
         Datos_empleado dtEmp= new Datos_empleado(this.db);
         dtEmp.setVisible(true);
     }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btnInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfActionPerformed
+        // TODO add your handling code here:
+        this.db.MostrarLista();
+    }//GEN-LAST:event_btnInfActionPerformed
 
     /**
      * @param args the command line arguments

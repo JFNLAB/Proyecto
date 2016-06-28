@@ -21,7 +21,7 @@ public class Base {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:basesita.db");
             stmt = c.createStatement();
-            String sql = "CREATE TABLE IF NOT EXISTS EMPLEADOS "
+            String sql = "CREATE TABLE IF NOT EXISTS EMPLEADO "
                     + "(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
                     + " CODIGO TEXT NOT NULL, "
                     + " NOMBRE TEXT NOT NULL, "
@@ -49,15 +49,18 @@ public class Base {
         }return ret;
     }
 
-/*    
-    public void MostrarLista(javax.swing.JList<String> list){
+    
+    public void MostrarLista(){
         try{
-            ResultSet rs = stmt.executeQuery("SELECT NOMBRE, APELLIDO FROM empleados");
-            list.add(rs.getInt("NOMBRE"))
+            ResultSet rs = stmt.executeQuery("SELECT NOMBRE, APELLIDO FROM EMPLEADO");
+            System.out.println(rs);
         }catch(SQLException e){
             
         }
 }
-*/
+
+    public void Entrar(String num){
+        
+    }
 }
 

@@ -10,23 +10,22 @@ package proyecto;
  * @author julian
  */
 public class Empleado {
-    private String nombre = "";
-    private String apellido = "";
-    private String direccion = "";
-    private int edad = 0;
-    private String email = "";
-    private Double codigo = 0.0;
+    private String nombre ;
+    private String apellido;
+    private String direccion;
+    private String edad;
+    private String email;
+    private String salario;
+    private String codigo;
     
-    public Empleado (){
-        
-    }
     
-    public Empleado(String nombre, String apellido, String direccion, int edad, String email, Double codigo){
+    public Empleado(String nombre, String apellido, String direccion, String edad, String email,String salario, String codigo){
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.edad = edad;
         this.email = email;
+        this.salario = salario;
         this.codigo = codigo;
         
     }
@@ -55,11 +54,11 @@ public class Empleado {
         this.direccion = direccion;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -71,12 +70,20 @@ public class Empleado {
         this.email = email;
     }
 
-    public Double getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(Double codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public String getSalario() {
+        return salario;
+    }
+
+    public void setSalario(String salario) {
+        this.salario = salario;
     }
     
     
