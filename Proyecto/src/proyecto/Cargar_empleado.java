@@ -51,7 +51,8 @@ public class Cargar_empleado extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txbEmail = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cargar Empleado");
 
         jLabel1.setText("Nombre:");
 
