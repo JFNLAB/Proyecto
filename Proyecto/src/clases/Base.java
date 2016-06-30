@@ -50,17 +50,23 @@ public class Base {
         return ret;
     }
 
-    public void MostrarLista() {
+    public String MostrarLista() {
+        String auxlista = null;
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
+<<<<<<< HEAD
                 String auxnombre = rs.getString("NOMBRE");
                 System.out.println(auxnombre);
+=======
+                auxlista= (rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
+>>>>>>> 8c8bccffda1d7440215b39de6defa63e8b2b2a24
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-    }
+        return auxlista;
+    } 
 
     public String Entrar(String num) {
         String EmpleadoLogN;

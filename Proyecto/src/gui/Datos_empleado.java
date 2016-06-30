@@ -6,6 +6,7 @@
 package gui;
 
 import clases.Base;
+import javax.swing.*;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Datos_empleado extends javax.swing.JFrame {
         initComponents();
         this.db=db;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,8 +33,8 @@ public class Datos_empleado extends javax.swing.JFrame {
     private void initComponents() {
 
         btnAct = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lista = new javax.swing.JList<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Text = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Datos del Empleado");
@@ -44,26 +46,29 @@ public class Datos_empleado extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane2.setViewportView(lista);
+        Text.setEditable(false);
+        Text.setColumns(20);
+        Text.setRows(5);
+        jScrollPane1.setViewportView(Text);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(559, Short.MAX_VALUE)
-                .addComponent(btnAct)
-                .addGap(36, 36, 36))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 547, Short.MAX_VALUE)
+                        .addComponent(btnAct)))
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAct)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -73,7 +78,8 @@ public class Datos_empleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-                
+        String a = this.db.MostrarLista();
+        Text.setText(a);
     }//GEN-LAST:event_btnActActionPerformed
 
     /**
@@ -81,9 +87,9 @@ public class Datos_empleado extends javax.swing.JFrame {
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Text;
     private javax.swing.JButton btnAct;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JList<String> lista;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     
     
