@@ -2,10 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/clases/Main.java</file>
             <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/clases/Base.java</file>
             <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Datos_empleado.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 958029121eb2dfd89f0e69ba2464662c44caaba5
     </open-files>
 </project-private>

@@ -6,6 +6,10 @@
 package gui;
 
 import clases.Base;
+import javax.swing.JOptionPane;
+import java.awt.event.KeyEvent;
+import javax.swing.InputMap;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -20,6 +24,11 @@ public class Login extends javax.swing.JFrame {
     public Login(Base db) {
         initComponents();
         this.db = db;
+        this.btnVerificar.setFocusPainted(true);
+        InputMap map = new InputMap();
+        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0,false),"pressed");
+        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0,true),"released");
+        btnVerificar.setInputMap(0,map);
     }
 
     /**
@@ -41,6 +50,11 @@ public class Login extends javax.swing.JFrame {
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerificarActionPerformed(evt);
+            }
+        });
+        btnVerificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVerificarKeyPressed(evt);
             }
         });
 
@@ -73,8 +87,14 @@ public class Login extends javax.swing.JFrame {
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
         String Numero_a_verificar = txbVerificar.getText();
-        this.db.Entrar(Numero_a_verificar);
+        String EmpleadoLog = this.db.Entrar(Numero_a_verificar);
+        JOptionPane.showMessageDialog(this,EmpleadoLog,"Empleado Logueado", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println(EmpleadoLog);
     }//GEN-LAST:event_btnVerificarActionPerformed
+
+    private void btnVerificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVerificarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerificarKeyPressed
 
     /**
      * @param args the command line arguments

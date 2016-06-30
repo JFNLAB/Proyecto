@@ -9,7 +9,7 @@ import java.sql.*;
 
 /**
  *
- * @author nico
+ * @author julian - nico
  */
 public class Base {
 
@@ -44,7 +44,7 @@ public class Base {
             stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario + "')");
             ret = true;
         } catch (SQLException e) {
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
             ret = false;
         }
         return ret;
@@ -55,15 +55,37 @@ public class Base {
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
+<<<<<<< HEAD
+                String auxnombre = rs.getString("NOMBRE");
+                System.out.println(auxnombre);
+=======
                 auxlista= (rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
+>>>>>>> 8c8bccffda1d7440215b39de6defa63e8b2b2a24
             }
         } catch (SQLException e) {
-            System.err.println(e.getClass().getName()+": "+e.getMessage());
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
         return auxlista;
     } 
 
-    public void Entrar(String num) {
-
+    public String Entrar(String num) {
+        String EmpleadoLogN;
+        String EmpleadoLogA;
+        String EmpleadoLog = null;
+        try {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
+            while (rs.next()) {
+                if (rs.getString("CODIGO").equals(num)) {
+                    EmpleadoLogN = rs.getString("NOMBRE");
+                    EmpleadoLogA = rs.getString("APELLIDO");
+                    EmpleadoLog = EmpleadoLogN + " " + EmpleadoLogA;
+                }else{
+                    System.out.println("No se encontro");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return EmpleadoLog;
     }
 }
