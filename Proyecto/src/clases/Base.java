@@ -62,7 +62,7 @@ public class Base {
                 String auxnombre = rs.getString("NOMBRE");
                 System.out.println(auxnombre);
 
-                auxlista= (rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
+                auxlista = (rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
                 lista.add(auxlista);
             }
         } catch (SQLException e) {
@@ -75,7 +75,6 @@ public class Base {
         String EmpleadoLogN;
         String EmpleadoLogA;
         String EmpleadoLog = null;
-        String MVentana;
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
@@ -93,4 +92,20 @@ public class Base {
         return EmpleadoLog;
     }
     
+
+public boolean Eliminar() {
+   boolean ret = false;
+   try {
+       ResultSet rs = stmt.executeQuery("SELECT ID FROM EMPLEADO");
+       int id = (rs.getInt("ID"));
+       System.out.println(id);
+       stmt.execute("DELETE FROM EMPLEADO WHERE ID = id");
+       ret = true;
+    } catch (SQLException e) {
+       System.err.println(e.getClass().getName() + ": " + e.getMessage());
+       ret = false;
+   }
+   return ret;
+}
+
 }

@@ -7,6 +7,8 @@ package gui;
 
 import clases.Base;
 import clases.Barras;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -44,6 +46,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Registro");
+        setIconImage(getIconImage());
 
         btn1.setText("Cargar empleado");
         btn1.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +143,15 @@ public class Principal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("Images/registro.jpg"));
+
+
+        return retValue;
+    }
+
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
