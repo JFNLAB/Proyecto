@@ -6,7 +6,6 @@
 package gui;
 
 import clases.Base;
-import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -14,16 +13,15 @@ import javax.swing.*;
  * @author feli
  */
 public class Datos_empleado extends javax.swing.JFrame {
-
     private Base db;
-
     /**
      * Creates new form Datos_empleado
      */
     public Datos_empleado(Base db) {
         initComponents();
-        this.db = db;
+        this.db=db;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +46,9 @@ public class Datos_empleado extends javax.swing.JFrame {
             }
         });
 
+        lista.setModel(new javax.swing.AbstractListModel<String>() {
+            
+        });
         jScrollPane1.setViewportView(lista);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -78,23 +79,18 @@ public class Datos_empleado extends javax.swing.JFrame {
 
     private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
         DefaultListModel listModel = new DefaultListModel();
-        lista.setModel(listModel);
-        ArrayList<String> a = db.MostrarLista();
-        for (int i = 0; i < a.size(); i++) {
-            listModel.addElement(a.get(i));
-        }
-
-
+        listModel.addElement("pinke");
     }//GEN-LAST:event_btnActActionPerformed
 
     /**
      * @param args the command line arguments
      */
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAct;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista;
     // End of variables declaration//GEN-END:variables
-
+    
+    
 }

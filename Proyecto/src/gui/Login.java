@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
 
         txbVerificar = new javax.swing.JTextField();
         btnVerificar = new javax.swing.JButton();
+        btnatras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Log in");
@@ -58,18 +59,32 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnatras.setText("Atrás");
+        btnatras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnatrasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txbVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txbVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(149, 149, 149)
+                                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnatras)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,7 +93,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txbVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(btnVerificar)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(btnatras)
+                .addContainerGap())
         );
 
         pack();
@@ -88,13 +105,17 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String Numero_a_verificar = txbVerificar.getText();
         String EmpleadoLog = this.db.Entrar(Numero_a_verificar);
-        JOptionPane.showMessageDialog(this,EmpleadoLog,"Empleado Logueado", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,EmpleadoLog,"Empleado", JOptionPane.INFORMATION_MESSAGE);
         System.out.println(EmpleadoLog);
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnVerificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVerificarKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVerificarKeyPressed
+
+    private void btnatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasActionPerformed
+       dispose();
+    }//GEN-LAST:event_btnatrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,6 +124,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
+    private javax.swing.JButton btnatras;
     private javax.swing.JTextField txbVerificar;
     // End of variables declaration//GEN-END:variables
 }

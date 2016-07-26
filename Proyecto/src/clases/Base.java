@@ -6,6 +6,8 @@
 package clases;
 
 import java.sql.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -50,28 +52,30 @@ public class Base {
         return ret;
     }
 
-    public String MostrarLista() {
+    public ArrayList MostrarLista() {
         String auxlista = null;
+        ArrayList<String> lista=new ArrayList();
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
-<<<<<<< HEAD
+
                 String auxnombre = rs.getString("NOMBRE");
                 System.out.println(auxnombre);
-=======
+
                 auxlista= (rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
->>>>>>> 8c8bccffda1d7440215b39de6defa63e8b2b2a24
+                lista.add(auxlista);
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        return auxlista;
+        return lista;
     } 
 
     public String Entrar(String num) {
         String EmpleadoLogN;
         String EmpleadoLogA;
         String EmpleadoLog = null;
+        String MVentana;
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
@@ -80,7 +84,7 @@ public class Base {
                     EmpleadoLogA = rs.getString("APELLIDO");
                     EmpleadoLog = EmpleadoLogN + " " + EmpleadoLogA;
                 }else{
-                    System.out.println("No se encontro");
+                    EmpleadoLog = ("No se encontro el empleado");
                 }
             }
         } catch (SQLException e) {
@@ -88,4 +92,5 @@ public class Base {
         }
         return EmpleadoLog;
     }
+    
 }
