@@ -62,7 +62,7 @@ public class Base {
                 String auxnombre = rs.getString("NOMBRE");
                 System.out.println(auxnombre);
 
-                auxlista = (rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
+                auxlista = (rs.getString("CODIGO") +" - " + rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
                 lista.add(auxlista);
             }
         } catch (SQLException e) {

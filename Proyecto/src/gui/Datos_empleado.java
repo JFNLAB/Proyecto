@@ -103,7 +103,9 @@ public class Datos_empleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        db.Eliminar();
+        int empleado_selc = lista.getSelectedIndex();
+        System.out.println("este "+ empleado_selc);
+        //db.Eliminar();
     }//GEN-LAST:event_btnEliminarActionPerformed
         
     /**
