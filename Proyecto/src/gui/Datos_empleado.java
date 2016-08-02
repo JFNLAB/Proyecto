@@ -93,15 +93,15 @@ public class Datos_empleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        try{
-        String auxempleado = lista.getSelectedValue();
-        String auxcodigo = auxempleado.substring(0, 9);
-        System.out.println(auxcodigo);
-        db.Eliminar(auxcodigo);
-        actualizar();
-        }catch(RuntimeException e){
+        try {
+            String auxempleado = lista.getSelectedValue();
+            String auxcodigo = auxempleado.substring(0, 9);
+            System.out.println(auxcodigo);
+            db.eliminar(auxcodigo);
+            actualizar();
+        } catch (RuntimeException e) {
             JOptionPane.showMessageDialog(this, "No hay elemento seleccionado");
-            
+
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -125,7 +125,7 @@ public class Datos_empleado extends javax.swing.JFrame {
     public void actualizar() {
         DefaultListModel listModel = new DefaultListModel();
         lista.setModel(listModel);
-        ArrayList<String> a = db.MostrarLista();
+        ArrayList<String> a = db.mostrarLista();
         for (int i = 0; i < a.size(); i++) {
             listModel.addElement(a.get(i));
         }

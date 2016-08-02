@@ -8,6 +8,7 @@ package clases;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.util.Date;
 
 /**
  *
@@ -40,7 +41,7 @@ public class Base {
         }
     }
 
-    public boolean Guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario) {
+    public boolean guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario) {
         boolean ret = false;
         try {
             stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario + "')");
@@ -52,7 +53,7 @@ public class Base {
         return ret;
     }
 
-    public ArrayList MostrarLista() {
+    public ArrayList mostrarLista() {
         String auxlista = null;
         ArrayList<String> lista = new ArrayList();
         try {
@@ -67,28 +68,48 @@ public class Base {
         return lista;
     }
 
-    public String Entrar(String num) {
-        String EmpleadoLogN;
-        String EmpleadoLogA;
-        String EmpleadoLog = null;
+    public String[] entrar(String num) {
+        String empleadoLogN;
+        String empleadoLogA;
+        String empleadoLog = null;
+        String empleado_tiempo = null;
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
                 if (rs.getString("CODIGO").equals(num)) {
-                    EmpleadoLogN = rs.getString("NOMBRE");
-                    EmpleadoLogA = rs.getString("APELLIDO");
-                    EmpleadoLog = EmpleadoLogN + " " + EmpleadoLogA;
+                    empleadoLogN = rs.getString("NOMBRE");
+                    empleadoLogA = rs.getString("APELLIDO");
+                    empleadoLog = empleadoLogN + " " + empleadoLogA;
+                    int hora_entrada = 8;
+                    Date ingreso = new java.util.Date();
+                    int hora_empleado = ingreso.getHours();
+                    int minuto_empleado = ingreso.getMinutes();
+                    if ((hora_empleado>hora_entrada)){
+                        empleado_tiempo= "Estas tarde wey";
+                    }else{
+                        if (hora_empleado<hora_entrada){
+                            empleado_tiempo = "Llegaste a tiempo wey";
+                        }else{
+                            if (minuto_empleado>0){
+                                empleado_tiempo= "por los pelos wey";
+                            }else{
+                                empleado_tiempo = "casi llegas wn";
+                            }
+                        }
+                    }
                 } else {
-                    EmpleadoLog = ("No se encontro el empleado");
+                    empleadoLog = ("No se encontro el empleado");
                 }
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        return EmpleadoLog;
+        String[] a = {empleadoLog, empleado_tiempo};
+        return a;
+  
     }
 
-    public boolean Eliminar(String eliminar) {
+    public boolean eliminar(String eliminar) {
         boolean ret = false;
         try {
             ResultSet rs = stmt.executeQuery("SELECT CODIGO FROM EMPLEADO");
