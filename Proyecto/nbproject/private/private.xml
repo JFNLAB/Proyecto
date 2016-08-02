@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Principal.java</file>
-            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/clases/Main.java</file>
-            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/clases/Base.java</file>
-            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Login.java</file>
-            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Datos_empleado.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/clases/Base.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/gui/Login.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/clases/Barras.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/gui/Datos_empleado.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/clases/Main.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/gui/Cargar_empleado.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/gui/Principal.java</file>
+            <file>file:/home/julian/Proyecto/Proyecto/src/clases/Empleado.java</file>
         </group>
     </open-files>
 </project-private>
