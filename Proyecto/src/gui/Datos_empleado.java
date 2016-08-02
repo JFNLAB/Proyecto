@@ -26,6 +26,7 @@ public class Datos_empleado extends javax.swing.JFrame {
     public Datos_empleado(Base db) {
         initComponents();
         this.db = db;
+        actualizar();
     }
 
     /**
@@ -45,7 +46,7 @@ public class Datos_empleado extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Datos del Empleado");
 
-        btnAct.setText("Actualizar");
+        btnAct.setText("Atrás");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActActionPerformed(evt);
@@ -91,22 +92,20 @@ public class Datos_empleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
-        DefaultListModel listModel = new DefaultListModel();
-        lista.setModel(listModel);
-        ArrayList<String> a = db.MostrarLista();
-        for (int i = 0; i < a.size(); i++) {
-            listModel.addElement(a.get(i));
-        }
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String auxempleado = lista.getSelectedValue();
+        String auxcodigo = auxempleado.substring(0,9);
+        
+        System.out.println(auxcodigo);
+        db.Eliminar(auxcodigo);
+        actualizar();
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActActionPerformed
+        dispose();
 
     }//GEN-LAST:event_btnActActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int empleado_selc = lista.getSelectedIndex();
-        System.out.println("este "+ empleado_selc);
-        //db.Eliminar();
-    }//GEN-LAST:event_btnEliminarActionPerformed
         
     /**
      * @param args the command line arguments
@@ -119,4 +118,12 @@ public class Datos_empleado extends javax.swing.JFrame {
     private javax.swing.JList<String> lista;
     // End of variables declaration//GEN-END:variables
 
+    public void actualizar(){
+        DefaultListModel listModel = new DefaultListModel();
+        lista.setModel(listModel);
+        ArrayList<String> a = db.MostrarLista();
+        for (int i = 0; i < a.size(); i++) {
+            listModel.addElement(a.get(i));
+        }
+    }
 }

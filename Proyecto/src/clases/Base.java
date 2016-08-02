@@ -58,10 +58,6 @@ public class Base {
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
-
-                String auxnombre = rs.getString("NOMBRE");
-                System.out.println(auxnombre);
-
                 auxlista = (rs.getString("CODIGO") +" - " + rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
                 lista.add(auxlista);
             }
@@ -93,18 +89,16 @@ public class Base {
     }
     
 
-public boolean Eliminar() {
+public boolean Eliminar(String eliminar) {
    boolean ret = false;
-   try {
-       ResultSet rs = stmt.executeQuery("SELECT ID FROM EMPLEADO");
-       int id = (rs.getInt("ID"));
-       System.out.println(id);
-       stmt.execute("DELETE FROM EMPLEADO WHERE ID = id");
-       ret = true;
-    } catch (SQLException e) {
-       System.err.println(e.getClass().getName() + ": " + e.getMessage());
-       ret = false;
-   }
+        try {
+            ResultSet rs = stmt.executeQuery("SELECT CODIGO FROM EMPLEADO");
+            while (rs.next()) {
+                    stmt.execute("DELETE FROM EMPLEADO WHERE CODIGO = " + eliminar);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }          
    return ret;
 }
 
