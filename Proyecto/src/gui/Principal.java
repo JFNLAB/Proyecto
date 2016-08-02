@@ -15,6 +15,7 @@ import java.awt.Toolkit;
  * @author julian
  */
 public class Principal extends javax.swing.JFrame {
+
     Base base = new Base();
     Barras codigo = new Barras();
     private Base db;
@@ -23,7 +24,7 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    public Principal(Base db,Barras barra) {
+    public Principal(Base db, Barras barra) {
         initComponents();
         this.db = db;
         this.barra = barra;
@@ -117,7 +118,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-       Login login = new Login(this.db);
+        Login login = new Login(this.db);
         login.setVisible(true);
     }//GEN-LAST:event_btn2ActionPerformed
 
@@ -131,7 +132,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        Datos_empleado dtEmp= new Datos_empleado(this.db);
+        Datos_empleado dtEmp = new Datos_empleado(this.db);
         dtEmp.setVisible(true);
     }//GEN-LAST:event_btn5ActionPerformed
 
@@ -148,11 +149,10 @@ public class Principal extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("Images/registro.jpg"));
 
-
         return retValue;
     }
 
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;

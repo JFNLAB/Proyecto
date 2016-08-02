@@ -54,18 +54,18 @@ public class Base {
 
     public ArrayList MostrarLista() {
         String auxlista = null;
-        ArrayList<String> lista=new ArrayList();
+        ArrayList<String> lista = new ArrayList();
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
-                auxlista = (rs.getString("CODIGO") +" - " + rs.getString("NOMBRE")+" - "+rs.getString("APELLIDO")+" - "+rs.getString("EDAD")+" - "+rs.getString("EMAIL")+" - "+rs.getString("DIRECCION")+" - "+rs.getString("SALARIO"));
+                auxlista = (rs.getString("CODIGO") + " - " + rs.getString("NOMBRE") + " - " + rs.getString("APELLIDO") + " - " + rs.getString("EDAD") + " - " + rs.getString("EMAIL") + " - " + rs.getString("DIRECCION") + " - " + rs.getString("SALARIO"));
                 lista.add(auxlista);
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
         return lista;
-    } 
+    }
 
     public String Entrar(String num) {
         String EmpleadoLogN;
@@ -78,7 +78,7 @@ public class Base {
                     EmpleadoLogN = rs.getString("NOMBRE");
                     EmpleadoLogA = rs.getString("APELLIDO");
                     EmpleadoLog = EmpleadoLogN + " " + EmpleadoLogA;
-                }else{
+                } else {
                     EmpleadoLog = ("No se encontro el empleado");
                 }
             }
@@ -87,19 +87,18 @@ public class Base {
         }
         return EmpleadoLog;
     }
-    
 
-public boolean Eliminar(String eliminar) {
-   boolean ret = false;
+    public boolean Eliminar(String eliminar) {
+        boolean ret = false;
         try {
             ResultSet rs = stmt.executeQuery("SELECT CODIGO FROM EMPLEADO");
             while (rs.next()) {
-                    stmt.execute("DELETE FROM EMPLEADO WHERE CODIGO = " + eliminar);
+                stmt.execute("DELETE FROM EMPLEADO WHERE CODIGO = " + eliminar);
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
-        }          
-   return ret;
-}
+        }
+        return ret;
+    }
 
 }

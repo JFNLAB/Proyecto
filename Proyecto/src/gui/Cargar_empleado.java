@@ -201,6 +201,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        String errores = "";
         String nombre = txbNombre.getText();
         String apellido = txbApellido.getText();
         String edad = txbEdad.getText();
@@ -209,40 +210,47 @@ public class Cargar_empleado extends javax.swing.JFrame {
         String salario = txbSalario.getText();
         int numRandom = (int) Math.floor(Math.random() * (000000000 - 999999999) + 999999999);
         String codigo = numRandom + "";
+
         if (nombre.equals("") || (apellido.equals("") || direccion.equals("") || (email.equals("") || (salario.equals(""))))) {
             JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacios");
         } else {
             Empleado auxEmpleado = new Empleado(nombre, apellido, direccion, edad, email, salario, codigo);
-            try{
+            try {
                 float b = Float.parseFloat(salario);
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "ERROR - Salario no es un numero válido");
+                errores += "1";
             }
-            try{
+            try {
                 float c = Integer.parseInt(edad);
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "ERROR - Edad no es un numero válido");
+                errores += "2";
+
             }
-            boolean a = this.db.Guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario());
-            txbNombre.setText("");
-            txbApellido.setText("");
-            txbEdad.setText("");
-            txbEmail.setText("");
-            txbDireccion.setText("");
-            txbSalario.setText("");
-            if (a) {
-                try {
-                this.barrita.CreateBarcode(codigo, nombre, apellido);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-                JOptionPane.showMessageDialog(this, "ERROR AL CREAR CODIGO");
-            }
-                JOptionPane.showMessageDialog(this, "Empleado cargado con exito");
+            if (errores.length() > 0) {
+
             } else {
-                
-                JOptionPane.showMessageDialog(this, "ERROR AL CARGAR EMPLEADO");
+                boolean a = this.db.Guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario());
+                txbNombre.setText("");
+                txbApellido.setText("");
+                txbEdad.setText("");
+                txbEmail.setText("");
+                txbDireccion.setText("");
+                txbSalario.setText("");
+
+                if (a) {
+                    try {
+                        this.barrita.CreateBarcode(codigo, nombre, apellido);
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                        JOptionPane.showMessageDialog(this, "ERROR AL CREAR CODIGO");
+                    }
+                    JOptionPane.showMessageDialog(this, "Empleado cargado con exito");
+                } else {
+                    JOptionPane.showMessageDialog(this, "ERROR AL CARGAR EMPLEADO");
+                }
             }
-            
         }
 
 

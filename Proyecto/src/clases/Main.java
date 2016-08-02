@@ -14,17 +14,18 @@ import clases.Barras;
  * @author julian
  */
 public class Main {
+
     private static Base db = new Base();
     private static Barras barra = new Barras();
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Principal ventana = new Principal(db,barra);
+        Principal ventana = new Principal(db, barra);
         ventana.setVisible(true);
-        
+
     }
-    
-    
+
 }
