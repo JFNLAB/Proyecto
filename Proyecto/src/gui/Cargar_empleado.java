@@ -220,12 +220,14 @@ public class Cargar_empleado extends javax.swing.JFrame {
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "ERROR - Salario no es un numero válido");
                 errores += "1";
+                txbSalario.setText("");
             }
             try {
                 float c = Integer.parseInt(edad);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "ERROR - Edad no es un numero válido");
                 errores += "2";
+                txbEdad.setText("");
 
             }
             if (errores.length() > 0) {
