@@ -105,8 +105,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String Numero_a_verificar = txbVerificar.getText();
         String EmpleadoLog = this.db.Entrar(Numero_a_verificar);
+        if (EmpleadoLog==(null)){
+            EmpleadoLog = "No hay empleados cargados";
+        }
         JOptionPane.showMessageDialog(this,EmpleadoLog,"Empleado", JOptionPane.INFORMATION_MESSAGE);
-        System.out.println(EmpleadoLog);
+
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnVerificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVerificarKeyPressed
