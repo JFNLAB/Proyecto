@@ -59,9 +59,40 @@ public class Base {
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
-                auxlista = (rs.getString("CODIGO") + " - " + rs.getString("NOMBRE") + " - " + rs.getString("APELLIDO") + " - " + rs.getString("EDAD") + " - " + rs.getString("EMAIL") + " - " + rs.getString("DIRECCION") + " - " + rs.getString("SALARIO"));
-                lista.add(auxlista);
+
+                String codigo = rs.getString("CODIGO");
+                while (codigo.length() < 30) {
+                    codigo += " ";
+                }
+                String nombre = rs.getString("NOMBRE");
+                while (nombre.length() < 30) {
+                    nombre += " ";
+                }
+                String apellido = rs.getString("APELLIDO");
+                while (apellido.length() < 30) {
+                    apellido += " ";
+                }
+                    String edad = rs.getString("EDAD");
+                    while (edad.length() < 30) {
+                        edad += " ";
+                }
+                    String email = rs.getString("EMAIL");
+                    while (email.length() < 30) {
+                        email += " ";
+                }
+                    String direccion = rs.getString("DIRECCION");
+                    while (direccion.length() < 30) {
+                        direccion += " ";
+                }
+                    String salario = rs.getString("SALARIO");
+                    while (salario.length() < 30) {
+                        salario += " ";
+                }
             }
+
+            auxlista = ("");
+            lista.add(auxlista);
+            
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
@@ -84,18 +115,14 @@ public class Base {
                     Date ingreso = new java.util.Date();
                     int hora_empleado = ingreso.getHours();
                     int minuto_empleado = ingreso.getMinutes();
-                    if ((hora_empleado>hora_entrada)){
-                        empleado_tiempo= "Estas tarde wey";
-                    }else{
-                        if (hora_empleado<hora_entrada){
-                            empleado_tiempo = "Llegaste a tiempo wey";
-                        }else{
-                            if (minuto_empleado>0){
-                                empleado_tiempo= "por los pelos wey";
-                            }else{
-                                empleado_tiempo = "casi llegas wn";
-                            }
-                        }
+                    if ((hora_empleado > hora_entrada)) {
+                        empleado_tiempo = "Estas tarde wey";
+                    } else if (hora_empleado < hora_entrada) {
+                        empleado_tiempo = "Llegaste a tiempo wey";
+                    } else if (minuto_empleado > 0) {
+                        empleado_tiempo = "por los pelos wey";
+                    } else {
+                        empleado_tiempo = "casi llegas wn";
                     }
                 } else {
                     empleadoLog = ("No se encontro el empleado");
@@ -106,7 +133,7 @@ public class Base {
         }
         String[] a = {empleadoLog, empleado_tiempo};
         return a;
-  
+
     }
 
     public boolean eliminar(String eliminar) {
@@ -122,4 +149,5 @@ public class Base {
         return ret;
     }
 
+   
 }
