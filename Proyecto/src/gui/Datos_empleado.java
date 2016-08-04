@@ -60,6 +60,7 @@ public class Datos_empleado extends javax.swing.JFrame {
             }
         });
 
+        lista.setFont(new java.awt.Font("Monospaced", 0, 15)); // NOI18N
         jScrollPane1.setViewportView(lista);
 
         btnEliminar.setText("Eliminar");

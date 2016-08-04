@@ -61,37 +61,38 @@ public class Base {
             while (rs.next()) {
 
                 String codigo = rs.getString("CODIGO");
-                while (codigo.length() < 30) {
+                while (codigo.length() < 10) {
                     codigo += " ";
                 }
                 String nombre = rs.getString("NOMBRE");
-                while (nombre.length() < 30) {
+                while (nombre.length() <10) {
                     nombre += " ";
                 }
                 String apellido = rs.getString("APELLIDO");
-                while (apellido.length() < 30) {
+                while (apellido.length() < 20) {
                     apellido += " ";
                 }
                     String edad = rs.getString("EDAD");
-                    while (edad.length() < 30) {
+                    while (edad.length() < 5) {
                         edad += " ";
                 }
                     String email = rs.getString("EMAIL");
-                    while (email.length() < 30) {
+                    while (email.length() < 28) {
                         email += " ";
                 }
                     String direccion = rs.getString("DIRECCION");
-                    while (direccion.length() < 30) {
+                    while (direccion.length() < 17) {
                         direccion += " ";
                 }
                     String salario = rs.getString("SALARIO");
-                    while (salario.length() < 30) {
+                    while (salario.length() < 11) {
                         salario += " ";
                 }
+                auxlista = (codigo + nombre + apellido + edad + email + direccion + salario);
+                lista.add(auxlista);
             }
 
-            auxlista = ("");
-            lista.add(auxlista);
+            
             
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
