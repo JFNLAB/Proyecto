@@ -8,6 +8,7 @@ package gui;
 import clases.Base;
 import javax.swing.JOptionPane;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 import javax.swing.InputMap;
 import javax.swing.KeyStroke;
 
@@ -18,7 +19,6 @@ import javax.swing.KeyStroke;
 public class Login extends javax.swing.JFrame {
 
     private Base db;
-
     /**
      * Creates new form Login
      */
@@ -27,9 +27,9 @@ public class Login extends javax.swing.JFrame {
         this.db = db;
         this.btnVerificar.setFocusPainted(true);
         InputMap map = new InputMap();
-        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false), "pressed");
-        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true), "released");
-        btnVerificar.setInputMap(0, map);
+        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0,false),"pressed");
+        map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER,0,true),"released");
+        btnVerificar.setInputMap(0,map);
     }
 
     /**
@@ -114,12 +114,14 @@ public class Login extends javax.swing.JFrame {
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
         String Numero_a_verificar = txbVerificar.getText();
-        String EmpleadoLog = this.db.Entrar(Numero_a_verificar);
-        if (EmpleadoLog == (null)) {
-            EmpleadoLog = "No hay empleados cargados";
+        String empleadoLog = this.db.entrar(Numero_a_verificar)[0];
+        String empleado_tiempo = this.db.entrar(Numero_a_verificar)[1];
+        if (empleadoLog==(null)){
+            empleadoLog = "No hay empleados cargados";
         }
-        JOptionPane.showMessageDialog(this, EmpleadoLog, "Empleado", JOptionPane.INFORMATION_MESSAGE);
-
+        JOptionPane.showMessageDialog(this,empleadoLog,"Empleado", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,empleado_tiempo,"Horario", JOptionPane.INFORMATION_MESSAGE);
+ 
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnVerificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVerificarKeyPressed
@@ -127,13 +129,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerificarKeyPressed
 
     private void btnatrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatrasActionPerformed
-        dispose();
+       dispose();
     }//GEN-LAST:event_btnatrasActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnatras;

@@ -233,7 +233,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
             if (errores.length() > 0) {
 
             } else {
-                boolean a = this.db.Guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario());
+                boolean a = this.db.guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario());
                 txbNombre.setText("");
                 txbApellido.setText("");
                 txbEdad.setText("");

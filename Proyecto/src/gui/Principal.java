@@ -137,8 +137,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btnInfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfActionPerformed
+<<<<<<< HEAD
         // TODO add your handling code here:
+        this.db.mostrarLista();
+=======
+        Informe informe = new Informe();
+        informe.setVisible(true);
         this.db.MostrarLista();
+>>>>>>> 1e4126ad0549274d4ee0bb6222caa83a101e02df
     }//GEN-LAST:event_btnInfActionPerformed
 
     /**
