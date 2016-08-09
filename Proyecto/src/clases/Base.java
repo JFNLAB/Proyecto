@@ -71,11 +71,11 @@ public class Base {
                     nombre += " ";
                 }
                 String apellido = rs.getString("APELLIDO");
-                while (apellido.length() < 20) {
+                while (apellido.length() < 15) {
                     apellido += " ";
                 }
                     String edad = rs.getString("EDAD");
-                    while (edad.length() < 5) {
+                    while (edad.length() < 7) {
                         edad += " ";
                 }
                     String email = rs.getString("EMAIL");

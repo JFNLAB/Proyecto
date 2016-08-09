@@ -91,7 +91,7 @@ public class Datos_empleado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnEliminar)
@@ -101,17 +101,17 @@ public class Datos_empleado extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(53, 53, 53)
                         .addComponent(jLabel1)
-                        .addGap(48, 48, 48)
+                        .addGap(28, 28, 28)
                         .addComponent(jLabel3)
-                        .addGap(45, 45, 45)
+                        .addGap(77, 77, 77)
                         .addComponent(jLabel4)
-                        .addGap(30, 30, 30)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(178, 178, 178)
                         .addComponent(jLabel6)
-                        .addGap(31, 31, 31)
+                        .addGap(85, 85, 85)
                         .addComponent(jLabel7)
-                        .addGap(37, 37, 37)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -144,6 +144,7 @@ public class Datos_empleado extends javax.swing.JFrame {
             String auxcodigo = auxempleado.substring(0, 9);
             System.out.println(auxcodigo);
             db.eliminar(auxcodigo);
+            System.out.println(lista.getSelectedValue());
             actualizar();
         } catch (RuntimeException e) {
             JOptionPane.showMessageDialog(this, "No hay elemento seleccionado");
