@@ -120,6 +120,9 @@ public class Principal extends javax.swing.JFrame {
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         Login login = new Login(this.db);
         login.setVisible(true);
+        Reloj reloj = new Reloj();
+        reloj.setVisible(true);
+        reloj.reloj();
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

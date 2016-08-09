@@ -45,7 +45,8 @@ public class Login extends javax.swing.JFrame {
         txbVerificar = new javax.swing.JTextField();
         btnVerificar = new javax.swing.JButton();
         btnatras = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblHoradeEntrada = new javax.swing.JLabel();
+        lblHoraActual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Log in");
@@ -69,7 +70,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Hora de Entrada: 8:00");
+        lblHoradeEntrada.setText("Hora de Entrada: 8:00");
+
+        lblHoraActual.setText("Hora Actual: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +95,9 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblHoradeEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblHoraActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -103,8 +108,10 @@ public class Login extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(btnVerificar)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(lblHoradeEntrada)
+                .addGap(18, 18, 18)
+                .addComponent(lblHoraActual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(btnatras)
                 .addContainerGap())
         );
@@ -121,7 +128,11 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No hay empleados cargados", "Empleado", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, empleadoLog, "Empleado", JOptionPane.INFORMATION_MESSAGE);
-            JOptionPane.showMessageDialog(this, empleado_tiempo, "Horario", JOptionPane.INFORMATION_MESSAGE);
+            if (empleado_tiempo == (null)) {
+
+            } else {
+                JOptionPane.showMessageDialog(this, empleado_tiempo, "Horario", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
 
 
@@ -142,7 +153,8 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnatras;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblHoraActual;
+    private javax.swing.JLabel lblHoradeEntrada;
     private javax.swing.JTextField txbVerificar;
     // End of variables declaration//GEN-END:variables
 }
