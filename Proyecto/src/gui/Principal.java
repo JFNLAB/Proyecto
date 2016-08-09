@@ -5,6 +5,7 @@
  */
 package gui;
 
+import clases.Reloj;
 import clases.Base;
 import clases.Barras;
 import java.awt.Image;
@@ -18,16 +19,18 @@ public class Principal extends javax.swing.JFrame {
 
     Base base = new Base();
     Barras codigo = new Barras();
+    Reloj reloj = new Reloj();
     private Base db;
     private Barras barra;
-
+    private Reloj clock;
     /**
      * Creates new form Main
      */
-    public Principal(Base db, Barras barra) {
+    public Principal(Base db, Barras barra, Reloj clock) {
         initComponents();
         this.db = db;
         this.barra = barra;
+        this.reloj = clock;
     }
 
     /**
@@ -120,9 +123,8 @@ public class Principal extends javax.swing.JFrame {
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         Login login = new Login(this.db);
         login.setVisible(true);
-        Reloj reloj = new Reloj();
-        reloj.setVisible(true);
         reloj.reloj();
+
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
