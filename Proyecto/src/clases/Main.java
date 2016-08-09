@@ -8,6 +8,7 @@ package clases;
 import gui.Principal;
 import clases.Base;
 import clases.Barras;
+import clases.Reloj;
 
 /**
  *
@@ -17,13 +18,14 @@ public class Main {
 
     private static Base db = new Base();
     private static Barras barra = new Barras();
+    private static Reloj reloj = new Reloj();
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Principal ventana = new Principal(db, barra);
+        Principal ventana = new Principal(db, barra,reloj);
         ventana.setVisible(true);
     }
 }
