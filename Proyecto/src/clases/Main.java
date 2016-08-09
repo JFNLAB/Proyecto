@@ -25,7 +25,5 @@ public class Main {
         // TODO code application logic here
         Principal ventana = new Principal(db, barra);
         ventana.setVisible(true);
-
     }
-
 }

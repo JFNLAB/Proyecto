@@ -32,7 +32,9 @@ public class Base {
                     + " EDAD TEXT NOT NULL,"
                     + " EMAIL TEXT NOT NULL, "
                     + " DIRECCION TEXT NOT NULL, "
-                    + " SALARIO TEXT NOT NULL)";
+                    + " SALARIO TEXT NOT NULL,"
+                    + " REGISTRADO INTEGER NOT NULL,"
+                    + " TARDE INTEGER NOT NULL)";
             stmt.executeUpdate(sql);
 
         } catch (Exception e) {
@@ -44,7 +46,7 @@ public class Base {
     public boolean guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario) {
         boolean ret = false;
         try {
-            stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario + "')");
+            stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO,REGISTRADO,TARDE) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario +"' , '" + 0 + "', '" + 0 + "')");
             ret = true;
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
