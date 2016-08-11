@@ -5,10 +5,29 @@
  */
 package clases;
 
+
 /**
  *
  * @author nico
  */
 public class Asistencia {
+    boolean entrada;
+    int hora;
+
+    public boolean isEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(boolean entrada) {
+        this.entrada = entrada;
+    }
+
+    public int getHora() {
+        return hora;
+    }
+
+    public void setHora(int hora) {
+        this.hora = hora;
+    }
     
 }

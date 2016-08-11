@@ -10,15 +10,15 @@ package clases;
  * @author nico
  */
 public class Horario {
-    String dia;
+    String[] dia;
     int horaInicio;
     int horaFin;
 
-    public String getDia() {
+    public String[] getDia() {
         return dia;
     }
 
-    public void setDia(String dia) {
+    public void setDia(String[] dia) {
         this.dia = dia;
     }
 
