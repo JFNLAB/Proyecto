@@ -66,7 +66,7 @@ package clases;
      
     	} 
      
-    	private void start() { 
+    	public void start() { 
     		 if(timer == null) 
     	    { 
     	      timer = new Thread(this); 

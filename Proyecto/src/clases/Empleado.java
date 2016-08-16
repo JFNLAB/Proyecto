@@ -17,7 +17,7 @@ public class Empleado {
     private String email;
     private String salario;
     private String codigo;
-    
+
     
     public Empleado(String nombre, String apellido, String direccion, String edad, String email,String salario, String codigo){
         this.nombre = nombre;
@@ -27,6 +27,7 @@ public class Empleado {
         this.email = email;
         this.salario = salario;
         this.codigo = codigo;
+
         
     }
     
@@ -85,6 +86,6 @@ public class Empleado {
     public void setSalario(String salario) {
         this.salario = salario;
     }
-    
+
     
 }

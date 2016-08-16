@@ -33,8 +33,10 @@ public class Base {
                     + " EMAIL TEXT NOT NULL, "
                     + " DIRECCION TEXT NOT NULL, "
                     + " SALARIO TEXT NOT NULL,"
-                    + " REGISTRADO INTEGER NOT NULL,"
-                    + " TARDE INTEGER NOT NULL)";
+                    + " H_ENTRADA INTEGER NOT NULL,"
+                    + " M_ENTRADA INTEGER NOT NULL,"
+                    + " H_SALIDA INTEGER NOT NULL,"
+                    + " M_SALIDA TEXT NOT NULL)";
             stmt.executeUpdate(sql);
 
         } catch (Exception e) {
@@ -43,10 +45,10 @@ public class Base {
         }
     }
 
-    public boolean guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario) {
+    public boolean guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario, int h_entrada, int m_entrada, int h_salida, int m_salida) {
         boolean ret = false;
         try {
-            stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO,REGISTRADO,TARDE) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario +"' , '" + 0 + "', '" + 0 + "')");
+            stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO,H_ENTRADA,M_ENTRADA,H_SALIDA,M_SALIDA) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario +"' , '" + h_entrada + "' , '" + m_entrada + "' , '" + h_salida + "', '" + m_salida + "')");
             ret = true;
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -74,27 +76,28 @@ public class Base {
                 while (apellido.length() < 15) {
                     apellido += " ";
                 }
-                    String edad = rs.getString("EDAD");
-                    while (edad.length() < 7) {
-                        edad += " ";
+                String edad = rs.getString("EDAD");
+                while (edad.length() < 7) {
+                    edad += " ";
                 }
-                    String email = rs.getString("EMAIL");
-                    while (email.length() < 28) {
-                        email += " ";
+                String email = rs.getString("EMAIL");
+                while (email.length() < 28) {
+                    email += " ";
                 }
-                    String direccion = rs.getString("DIRECCION");
-                    while (direccion.length() < 17) {
-                        direccion += " ";
+                String direccion = rs.getString("DIRECCION");
+                while (direccion.length() < 17) {
+                    direccion += " ";
                 }
-                    String salario = rs.getString("SALARIO");
-                    while (salario.length() < 11) {
-                        salario += " ";
+                String salario = rs.getString("SALARIO");
+                while (salario.length() < 11) {
+                    salario += " ";
                 }
+                
                 auxlista = (codigo + nombre + apellido + edad + email + direccion + salario);
                 lista.add(auxlista);
-            }
+                }
 
-            
+                    
             
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -107,6 +110,7 @@ public class Base {
         String empleadoLogA;
         String empleadoLog = null;
         String empleado_tiempo = null;
+
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
@@ -114,19 +118,26 @@ public class Base {
                     empleadoLogN = rs.getString("NOMBRE");
                     empleadoLogA = rs.getString("APELLIDO");
                     empleadoLog = empleadoLogN + " " + empleadoLogA;
-                    int hora_entrada = 8;
-                    Date ingreso = new java.util.Date();
-                    int hora_empleado = ingreso.getHours();
-                    int minuto_empleado = ingreso.getMinutes();
-                    if ((hora_empleado > hora_entrada)) {
-                        empleado_tiempo = "Estas tarde wey";
-                    } else if (hora_empleado < hora_entrada) {
-                        empleado_tiempo = "Llegaste a tiempo wey";
-                    } else if (minuto_empleado > 0) {
-                        empleado_tiempo = "por los pelos wey";
-                    } else {
-                        empleado_tiempo = "casi llegas wn";
+                    int h_entrada = (rs.getInt("H_ENTRADA"));
+                    int m_entrada = (rs.getInt("M_ENTRADA"));
+                    int h_salida = (rs.getInt("H_SALIDA"));
+                    int m_salida = (rs.getInt("H_SALIDA"));
+                    Date hora = new java.util.Date();
+                    int hora_actual = hora.getHours();
+                    int min_actuales= hora.getMinutes();
+                    
+                    if ((hora_actual > h_entrada)) {
+                        empleado_tiempo = "Estas tarde";
+                    }else{
+                        if (hora_actual == h_entrada){
+                            if(min_actuales>m_entrada){
+                                empleado_tiempo = "Llegaste tarde";
+                            }else{
+                                empleado_tiempo = "Llegaste bien";
+                            }
+                        }
                     }
+                    
                 } else {
                     empleadoLog = ("No se encontro el empleado");
                 }

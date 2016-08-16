@@ -6,6 +6,7 @@
 package gui;
 
 import clases.Empleado;
+import clases.Horario;
 import clases.Asistencia;
 import clases.Base;
 import clases.Barras;
@@ -57,9 +58,13 @@ public class Cargar_empleado extends javax.swing.JFrame {
         lblSalario = new javax.swing.JLabel();
         txbEmail = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txbHora = new javax.swing.JTextField();
-        txbMin = new javax.swing.JTextField();
+        txbHoraE = new javax.swing.JTextField();
+        txbMinE = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txbHoraS = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txbMinS = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cargar Empleado");
@@ -116,57 +121,64 @@ public class Cargar_empleado extends javax.swing.JFrame {
 
         jLabel1.setText("Hora de entrada:");
 
-        txbHora.addActionListener(new java.awt.event.ActionListener() {
+        txbHoraE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txbHoraActionPerformed(evt);
+                txbHoraEActionPerformed(evt);
             }
         });
 
-        txbMin.addActionListener(new java.awt.event.ActionListener() {
+        txbMinE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txbMinActionPerformed(evt);
+                txbMinEActionPerformed(evt);
             }
         });
 
         jLabel2.setText(" : ");
+
+        jLabel3.setText("Hora salida:");
+
+        txbHoraS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txbHoraSActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText(" : ");
+
+        txbMinS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txbMinSActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblEdad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txbDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txbEdad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txbApellido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txbNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnCancelar)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnGuardar)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblEdad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txbDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txbEdad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txbApellido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txbNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
@@ -174,11 +186,26 @@ public class Cargar_empleado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txbHoraE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(3, 3, 3)
                                 .addComponent(jLabel2)
                                 .addGap(5, 5, 5)
-                                .addComponent(txbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txbMinE, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(49, 49, 49)
+                        .addComponent(txbHoraS, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel4)
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnGuardar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txbMinS, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -208,13 +235,19 @@ public class Cargar_empleado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSalario)
                     .addComponent(txbSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txbMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txbHoraE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txbMinE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txbHoraS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txbMinS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnGuardar))
@@ -245,13 +278,19 @@ public class Cargar_empleado extends javax.swing.JFrame {
         String email = txbEmail.getText();
         String direccion = txbDireccion.getText();
         String salario = txbSalario.getText();
+        int hora_entrada = Integer.parseInt(txbHoraE.getText());
+        int min_entrada = Integer.parseInt(txbMinE.getText());
+        int hora_salida = Integer.parseInt(txbHoraS.getText());
+        int min_salida = Integer.parseInt(txbMinS.getText());
+        
         int numRandom = (int) Math.floor(Math.random() * (000000000 - 999999999) + 999999999);
         String codigo = numRandom + "";
 
-        if (nombre.equals("") || (apellido.equals("") || direccion.equals("") || (email.equals("") || (salario.equals(""))))) {
+        if (nombre.equals("") || (apellido.equals("") || direccion.equals("") || (email.equals("") || (salario.equals(""))) || (txbHoraE.getText().equals(""))) || (txbMinE.getText().equals("")) || (txbHoraS.getText().equals("")) || (txbMinS.getText().equals("")) ) {
             JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacios");
         } else {
             Empleado auxEmpleado = new Empleado(nombre, apellido, direccion, edad, email, salario, codigo);
+            Horario auxHorario = new Horario(hora_entrada,min_entrada,hora_salida,min_salida);
             try {
                 float b = Float.parseFloat(salario);
             } catch (NumberFormatException e) {
@@ -270,14 +309,19 @@ public class Cargar_empleado extends javax.swing.JFrame {
             if (errores.length() > 0) {
 
             } else {
-                boolean a = this.db.guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario());
+                boolean a = this.db.guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario(), auxHorario.getHora_inicio(), auxHorario.getMin_inicio(), auxHorario.getHora_fin(), auxHorario.getMin_fin());
+                
                 txbNombre.setText("");
                 txbApellido.setText("");
                 txbEdad.setText("");
                 txbEmail.setText("");
                 txbDireccion.setText("");
                 txbSalario.setText("");
-
+                txbHoraE.setText("");
+                txbMinE.setText("");
+                txbHoraS.setText("");
+                txbMinS.setText("");
+                
                 if (a) {
                     try {
                         this.barrita.CreateBarcode(codigo, nombre, apellido);
@@ -304,13 +348,21 @@ public class Cargar_empleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txbEmailActionPerformed
 
-    private void txbHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbHoraActionPerformed
+    private void txbHoraEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbHoraEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txbHoraActionPerformed
+    }//GEN-LAST:event_txbHoraEActionPerformed
 
-    private void txbMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbMinActionPerformed
+    private void txbMinEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbMinEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txbMinActionPerformed
+    }//GEN-LAST:event_txbMinEActionPerformed
+
+    private void txbHoraSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbHoraSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txbHoraSActionPerformed
+
+    private void txbMinSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txbMinSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txbMinSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,6 +374,8 @@ public class Cargar_empleado extends javax.swing.JFrame {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblEdad;
@@ -332,8 +386,10 @@ public class Cargar_empleado extends javax.swing.JFrame {
     private javax.swing.JTextField txbDireccion;
     private javax.swing.JTextField txbEdad;
     private javax.swing.JTextField txbEmail;
-    private javax.swing.JTextField txbHora;
-    private javax.swing.JTextField txbMin;
+    private javax.swing.JTextField txbHoraE;
+    private javax.swing.JTextField txbHoraS;
+    private javax.swing.JTextField txbMinE;
+    private javax.swing.JTextField txbMinS;
     private javax.swing.JTextField txbNombre;
     private javax.swing.JTextField txbSalario;
     // End of variables declaration//GEN-END:variables
