@@ -115,13 +115,12 @@ public class Base {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
                 if (rs.getString("CODIGO").equals(num)) {
+                    System.out.println(rs.getString("CODIGO")+ "..." + num) ;
                     empleadoLogN = rs.getString("NOMBRE");
                     empleadoLogA = rs.getString("APELLIDO");
                     empleadoLog = empleadoLogN + " " + empleadoLogA;
                     int h_entrada = (rs.getInt("H_ENTRADA"));
                     int m_entrada = (rs.getInt("M_ENTRADA"));
-                    int h_salida = (rs.getInt("H_SALIDA"));
-                    int m_salida = (rs.getInt("H_SALIDA"));
                     Date hora = new java.util.Date();
                     int hora_actual = hora.getHours();
                     int min_actuales= hora.getMinutes();
@@ -137,7 +136,8 @@ public class Base {
                             }
                         }
                     }
-                    
+
+
                 } else {
                     empleadoLog = ("No se encontro el empleado");
                 }
