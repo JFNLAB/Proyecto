@@ -7,7 +7,7 @@ package clases;
 
 /**
  *
- * @author julian
+ * @author feli
  */
 
 
@@ -45,7 +45,8 @@ package clases;
      
     	public void reloj() {
     		Reloj clock=new Reloj(); 
-    		 clock.setSize(200, 80); 
+    		clock.setBounds(260,185,120,60);
+                clock.setAlwaysOnTop( true );
     		clock.setVisible(true); 
     		 try { 
     		        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); 
