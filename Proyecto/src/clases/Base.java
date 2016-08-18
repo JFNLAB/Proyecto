@@ -137,7 +137,7 @@ public class Base {
                         }
                     }
 
-
+                    break;
                 } else {
                     empleadoLog = ("No se encontro el empleado");
                 }
