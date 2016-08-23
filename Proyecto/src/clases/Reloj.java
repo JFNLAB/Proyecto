@@ -9,32 +9,19 @@ package clases;
  *
  * @author julian
  */
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import javax.swing.JFrame;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.Date;
 
-import javax.swing.JLabel;
-
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
-public class Reloj extends Thread {
-
-    Thread timer = null;
+public class Reloj implements Runnable {
 
     String dateToDisplay;
 
-    int hr;
-    Date d;
-    int hour;
-    int minute;
-    int second;
+    private int hr;
+    private Date d;
+    private int hour;
+    private int minute;
+    private int second;
     String amPm = "AM";
+    private Thread timer;
 
     public String getFormatedDate(Date d) {
         String formatedDate = " ";
@@ -49,7 +36,6 @@ public class Reloj extends Thread {
         formatedDate = formatedDate.concat(padElement(minute, '0'));
         formatedDate = formatedDate.concat(":");
         formatedDate = formatedDate.concat(padElement(second, '0'));
-        formatedDate = formatedDate.concat(" " + amPm);
         return formatedDate;
     }
 
@@ -61,17 +47,22 @@ public class Reloj extends Thread {
         result = result.concat(String.valueOf(expr));
         return (result);
     }
+    public void start(){
+        if (timer==null){
+            timer=new Thread(this);
+            timer.start();
+        }
+    }
 
     @Override
     public void run() {
-        while (timer != null) {
+        while (true) {
             try {
                 timer.sleep(100);
             } catch (InterruptedException e) {
             }
             d = new Date();
-            dateToDisplay = getFormatedDate(d);
+            getFormatedDate(d);
         }
-        timer = null;
     }
 }

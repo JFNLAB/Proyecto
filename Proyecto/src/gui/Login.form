@@ -28,17 +28,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txbVerificar" pref="392" max="32767" attributes="0"/>
+                      <Component id="txbVerificar" pref="376" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnatras" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                               <Component id="btnVerificar" min="-2" pref="99" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnatras" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -58,12 +58,6 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" pref="416" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -75,34 +69,14 @@
               <Component id="btnVerificar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="lblHoradeEntrada" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblHoraActual" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblHoraNow" alignment="3" min="-2" max="-2" attributes="0"/>
-=======
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblHoraActual" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="109" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="lbl1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                  </Group>
->>>>>>> a2194d63e6d82a1cfd8e0ea27a3f00e6daa02383
               </Group>
               <EmptySpace pref="19" max="32767" attributes="0"/>
               <Component id="btnatras" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" pref="330" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -137,17 +111,9 @@
         <Property name="text" type="java.lang.String" value="Hora Actual: "/>
       </Properties>
     </Component>
-<<<<<<< HEAD
     <Component class="javax.swing.JLabel" name="lblHoraNow">
-=======
-    <Component class="javax.swing.JLabel" name="lbl1">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
->>>>>>> a2194d63e6d82a1cfd8e0ea27a3f00e6daa02383
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/user2/Escritorio/Documentos/Arias/Si/Proyecto/Proyecto/src/Images/2.jpg"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
   </SubComponents>

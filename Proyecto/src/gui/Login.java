@@ -32,9 +32,9 @@ public class Login extends javax.swing.JFrame {
         map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false), "pressed");
         map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true), "released");
         btnVerificar.setInputMap(0, map);
-         Reloj reloj = new Reloj();
-         Date d = new Date();
-         lblHoraNow.setText(reloj.getFormatedDate(d));
+        Reloj reloj = new Reloj();
+        Date d = new Date();
+        lblHoraNow.setText(reloj.getFormatedDate(d));
     }
 
     /**
@@ -51,12 +51,7 @@ public class Login extends javax.swing.JFrame {
         btnatras = new javax.swing.JButton();
         lblHoradeEntrada = new javax.swing.JLabel();
         lblHoraActual = new javax.swing.JLabel();
-<<<<<<< HEAD
         lblHoraNow = new javax.swing.JLabel();
-=======
-        lbl1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
->>>>>>> a2194d63e6d82a1cfd8e0ea27a3f00e6daa02383
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Log in");
@@ -84,11 +79,7 @@ public class Login extends javax.swing.JFrame {
 
         lblHoraActual.setText("Hora Actual: ");
 
-<<<<<<< HEAD
         lblHoraNow.setText("jLabel1");
-=======
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/user2/Escritorio/Documentos/Arias/Si/Proyecto/Proyecto/src/Images/2.jpg")); // NOI18N
->>>>>>> a2194d63e6d82a1cfd8e0ea27a3f00e6daa02383
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,15 +89,15 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txbVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
+                        .addComponent(txbVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnatras))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(149, 149, 149)
-                                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnatras)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -118,10 +109,6 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblHoraNow)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,29 +119,13 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(btnVerificar)
                 .addGap(18, 18, 18)
                 .addComponent(lblHoradeEntrada)
-<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHoraActual)
                     .addComponent(lblHoraNow))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblHoraActual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl1)
-                        .addGap(5, 5, 5)))
->>>>>>> a2194d63e6d82a1cfd8e0ea27a3f00e6daa02383
                 .addComponent(btnatras)
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -194,11 +165,6 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnatras;
-<<<<<<< HEAD
-=======
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lbl1;
->>>>>>> a2194d63e6d82a1cfd8e0ea27a3f00e6daa02383
     private javax.swing.JLabel lblHoraActual;
     private javax.swing.JLabel lblHoraNow;
     private javax.swing.JLabel lblHoradeEntrada;
