@@ -115,7 +115,6 @@ public class Base {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
                 if (rs.getString("CODIGO").equals(num)) {
-                    System.out.println(rs.getString("CODIGO")+ "..." + num) ;
                     empleadoLogN = rs.getString("NOMBRE");
                     empleadoLogA = rs.getString("APELLIDO");
                     empleadoLog = empleadoLogN + " " + empleadoLogA;

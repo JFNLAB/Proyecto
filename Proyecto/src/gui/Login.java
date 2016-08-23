@@ -32,11 +32,11 @@ public class Login extends javax.swing.JFrame {
         map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false), "pressed");
         map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, true), "released");
         btnVerificar.setInputMap(0, map);
-        /**
+        
         Reloj reloj = new Reloj();
         Date d = new Date();
         lbl1.setText(reloj.getFormatedDate(d));
-        */
+        
     }
 
     /**
