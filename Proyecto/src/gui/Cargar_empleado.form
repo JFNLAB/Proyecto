@@ -4,9 +4,6 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Cargar Empleado"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[435, 420]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -321,7 +318,7 @@
           <Color blue="fe" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg"/>
+          <Image iconType="3" name="/Images/FONDO.jpg"/>
         </Property>
       </Properties>
     </Component>

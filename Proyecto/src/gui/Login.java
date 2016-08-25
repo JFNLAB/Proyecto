@@ -82,7 +82,7 @@ public class Login extends javax.swing.JFrame {
         lblHoraNow.setForeground(new java.awt.Color(254, 254, 254));
         lblHoraNow.setText("jLabel1");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FONDO.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

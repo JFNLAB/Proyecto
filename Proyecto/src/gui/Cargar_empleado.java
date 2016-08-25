@@ -68,7 +68,6 @@ public class Cargar_empleado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cargar Empleado");
-        setPreferredSize(new java.awt.Dimension(435, 420));
         setResizable(false);
 
         lblNombre.setForeground(new java.awt.Color(254, 254, 254));
@@ -155,7 +154,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
         spnMinE.setToolTipText("");
 
         jLabel5.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel5.setIcon(new javax.swing.ImageIcon("/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FONDO.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -98,10 +98,10 @@ public class Datos_empleado extends javax.swing.JFrame {
         jLabel7.setText("Salario");
 
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel8.setIcon(new javax.swing.ImageIcon("/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FONDO.jpg"))); // NOI18N
 
         jLabel10.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel10.setIcon(new javax.swing.ImageIcon("/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FONDO.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
