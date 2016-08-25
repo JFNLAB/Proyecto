@@ -4,7 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/clases/Main.java</file>
+            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Informe.java</file>
             <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Login.java</file>
+            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Datos_empleado.java</file>
+            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Cargar_empleado.java</file>
+            <file>file:/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/gui/Codigobarra.java</file>
         </group>
     </open-files>
 </project-private>

@@ -38,6 +38,7 @@ public class Datos_empleado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel9 = new javax.swing.JLabel();
         btnAct = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista = new javax.swing.JList<>();
@@ -49,9 +50,14 @@ public class Datos_empleado extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+
+        jLabel9.setText("jLabel9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Datos del Empleado");
+        setResizable(false);
 
         btnAct.setText("Atrás");
         btnAct.addActionListener(new java.awt.event.ActionListener() {
@@ -70,19 +76,32 @@ public class Datos_empleado extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("Nombre");
 
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Codigo");
 
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("Apellido");
 
+        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("Edad");
 
+        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
         jLabel5.setText("Email");
 
+        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("Dirección");
 
+        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("Salario");
+
+        jLabel8.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel8.setIcon(new javax.swing.ImageIcon("/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg")); // NOI18N
+
+        jLabel10.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel10.setIcon(new javax.swing.ImageIcon("/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,28 +110,38 @@ public class Datos_empleado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAct))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel1)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel3)
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel4)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel5)
-                        .addGap(178, 178, 178)
-                        .addComponent(jLabel6)
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(53, 53, 53)
+                                .addComponent(jLabel1)
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel3)
+                                .addGap(77, 77, 77)
+                                .addComponent(jLabel4)
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel5)
+                                .addGap(178, 178, 178)
+                                .addComponent(jLabel6)
+                                .addGap(85, 85, 85)
+                                .addComponent(jLabel7)
+                                .addGap(0, 385, Short.MAX_VALUE)))
+                        .addContainerGap())))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jLabel8)
+                    .addGap(0, 311, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 799, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,6 +162,10 @@ public class Datos_empleado extends javax.swing.JFrame {
                     .addComponent(btnAct)
                     .addComponent(btnEliminar))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 494, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 494, Short.MAX_VALUE))
         );
 
         pack();
@@ -166,12 +199,15 @@ public class Datos_empleado extends javax.swing.JFrame {
     private javax.swing.JButton btnAct;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista;
     // End of variables declaration//GEN-END:variables
