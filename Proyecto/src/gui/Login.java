@@ -80,7 +80,6 @@ public class Login extends javax.swing.JFrame {
         lblHoraActual.setText("Hora Actual: ");
 
         lblHoraNow.setForeground(new java.awt.Color(254, 254, 254));
-        lblHoraNow.setText("jLabel1");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FONDO.jpg"))); // NOI18N
 
