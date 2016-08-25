@@ -36,7 +36,9 @@ public class Base {
                     + " H_ENTRADA INTEGER NOT NULL,"
                     + " M_ENTRADA INTEGER NOT NULL,"
                     + " H_SALIDA INTEGER NOT NULL,"
-                    + " M_SALIDA TEXT NOT NULL)";
+                    + " M_SALIDA TEXT NOT NULL,"
+                    + " REGISTRADO INTEGER NOT NULL,"
+                    + " LLEGADAS_TARDE INTEGER NOT NULL)";
             stmt.executeUpdate(sql);
 
         } catch (Exception e) {
@@ -48,7 +50,7 @@ public class Base {
     public boolean guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario, int h_entrada, int m_entrada, int h_salida, int m_salida) {
         boolean ret = false;
         try {
-            stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO,H_ENTRADA,M_ENTRADA,H_SALIDA,M_SALIDA) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario +"' , '" + h_entrada + "' , '" + m_entrada + "' , '" + h_salida + "', '" + m_salida + "')");
+            stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO,H_ENTRADA,M_ENTRADA,H_SALIDA,M_SALIDA,REGISTRADO,LLEGADAS_TARDE) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario + "' , '" + h_entrada + "' , '" + m_entrada + "' , '" + h_salida + "', '" + m_salida + "','" + 0 + "' , '" + 0 + "')");
             ret = true;
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -69,7 +71,7 @@ public class Base {
                     codigo += " ";
                 }
                 String nombre = rs.getString("NOMBRE");
-                while (nombre.length() <10) {
+                while (nombre.length() < 10) {
                     nombre += " ";
                 }
                 String apellido = rs.getString("APELLIDO");
@@ -92,13 +94,11 @@ public class Base {
                 while (salario.length() < 11) {
                     salario += " ";
                 }
-                
+
                 auxlista = (codigo + nombre + apellido + edad + email + direccion + salario);
                 lista.add(auxlista);
-                }
+            }
 
-                    
-            
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
@@ -122,17 +122,18 @@ public class Base {
                     int m_entrada = (rs.getInt("M_ENTRADA"));
                     Date hora = new java.util.Date();
                     int hora_actual = hora.getHours();
-                    int min_actuales= hora.getMinutes();
-                    
+                    int min_actuales = hora.getMinutes();
+
                     if ((hora_actual > h_entrada)) {
                         empleado_tiempo = "Estas tarde";
-                    }else{
-                        if (hora_actual == h_entrada){
-                            if(min_actuales>m_entrada){
-                                empleado_tiempo = "Llegaste tarde";
-                            }else{
-                                empleado_tiempo = "Llegaste bien";
-                            }
+                        stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 LLEGADAS_TARDE = " + (rs.getInt("LLEGADAS_TARDE") + 1) + "WHERE CODIGO =  " + num);
+                    } else if (hora_actual == h_entrada) {
+                        if (min_actuales > m_entrada) {
+                            empleado_tiempo = "Llegaste tarde";
+                            stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 LLEGADAS_TARDE = " + (rs.getInt("LLEGADAS_TARDE") + 1) + "WHERE CODIGO =  " + num);
+                        } else {
+                            empleado_tiempo = "Llegaste bien";
+                            stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
                         }
                     }
 
@@ -162,5 +163,4 @@ public class Base {
         return ret;
     }
 
-   
 }
