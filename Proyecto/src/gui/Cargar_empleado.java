@@ -282,8 +282,9 @@ public class Cargar_empleado extends javax.swing.JFrame {
         if (nombre.equals("") || (apellido.equals("") || direccion.equals("") || (email.equals("") || (salario.equals(""))))) {
             JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacios");
         } else {
-            Empleado auxEmpleado = new Empleado(nombre, apellido, direccion, edad, email, salario, codigo);
+            Empleado auxEmpleado = new Empleado(nombre, apellido, direccion, edad, email, salario, codigo, 0);
             Horario auxHorario = new Horario(hora_entrada,min_entrada,hora_salida,min_salida);
+            Asistencia auxAsistencia = new Asistencia(0,0,0);
             try {
                 float b = Float.parseFloat(salario);
             } catch (NumberFormatException e) {

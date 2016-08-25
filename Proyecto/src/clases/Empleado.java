@@ -17,9 +17,10 @@ public class Empleado {
     private String email;
     private String salario;
     private String codigo;
+    private int llegadas_tarde;
 
     
-    public Empleado(String nombre, String apellido, String direccion, String edad, String email,String salario, String codigo){
+    public Empleado(String nombre, String apellido, String direccion, String edad, String email,String salario, String codigo,int llegadas_tarde){
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
@@ -27,6 +28,7 @@ public class Empleado {
         this.email = email;
         this.salario = salario;
         this.codigo = codigo;
+        this.llegadas_tarde = llegadas_tarde;
 
         
     }
@@ -85,6 +87,14 @@ public class Empleado {
 
     public void setSalario(String salario) {
         this.salario = salario;
+    }
+
+    public int getLlegadas_tarde() {
+        return llegadas_tarde;
+    }
+
+    public void setLlegadas_tarde(int llegadas_tarde) {
+        this.llegadas_tarde = llegadas_tarde;
     }
 
     
