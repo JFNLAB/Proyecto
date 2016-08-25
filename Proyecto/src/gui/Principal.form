@@ -115,7 +115,7 @@
           <Color blue="fe" green="fe" red="fe" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/nico/Escritorio/Programacion/Proyecto/Proyecto/src/Images/FONDO.jpg"/>
+          <Image iconType="3" name="/Images/FONDO.jpg"/>
         </Property>
       </Properties>
     </Component>
