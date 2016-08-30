@@ -28,14 +28,14 @@ public class Reloj implements Runnable {
         hour = d.getHours();
         minute = d.getMinutes();
         second = d.getSeconds();
-        amPm = (hour < 12) ? "AM" : "PM";
-        hr = (hour > 12) ? hour - 12 : hour;
+        //amPm = (hour < 12) ? "AM" : "PM";
+        //hr = (hour > 12) ? hour - 12 : hour;
 
-        formatedDate = formatedDate.concat(padElement(hr, '0'));
+        formatedDate = formatedDate.concat(padElement(hour, '0'));
         formatedDate = formatedDate.concat(":");
         formatedDate = formatedDate.concat(padElement(minute, '0'));
-        formatedDate = formatedDate.concat(":");
-        formatedDate = formatedDate.concat(padElement(second, '0'));
+        //formatedDate = formatedDate.concat(":");
+        //formatedDate = formatedDate.concat(padElement(second, '0'));
         return formatedDate;
     }
 

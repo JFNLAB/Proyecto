@@ -93,8 +93,12 @@ public class Base {
                 while (salario.length() < 11) {
                     salario += " ";
                 }
+                String llegadastarde = rs.getString("LLEGADAS_TARDE");
+                while (llegadastarde.length() < 6) {
+                    llegadastarde += " ";
+                }
 
-                auxlista = (codigo + nombre + apellido + edad + email + direccion + salario);
+                auxlista = (codigo + nombre + apellido + edad + email + direccion + salario + llegadastarde);
                 lista.add(auxlista);
             }
 

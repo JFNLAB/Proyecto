@@ -37,7 +37,7 @@ public class Codigobarra extends javax.swing.JFrame {
 
         lblcode = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Se genero su codigo de barras");
         setResizable(false);
 
