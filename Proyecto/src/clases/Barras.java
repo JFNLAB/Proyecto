@@ -33,7 +33,7 @@ public class Barras {
         barcode.setCode(codigo);
         barcode.setCheckDigit(true);
 
-        BufferedImage bufferedImage = barcode.draw(new BufferedImage(250, 100, BufferedImage.TYPE_INT_RGB));
+        BufferedImage bufferedImage = barcode.draw(new BufferedImage(300, 100, BufferedImage.TYPE_INT_RGB));
 
         // guardar en disco como png
         File file = new File("src/codigos/"+nombre+"_"+apellido+".png");

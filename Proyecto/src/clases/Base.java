@@ -164,7 +164,7 @@ public class Base {
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
-                if (rs.getString("CODIGO").equals(num)) {
+                if (rs.getString("CODIGO").equals(num) && (rs.getInt("REGISTRADO") == 0)) {
                     empleadoLogN = rs.getString("NOMBRE");
                     empleadoLogA = rs.getString("APELLIDO");
                     empleadoLog = empleadoLogN + " " + empleadoLogA;
@@ -174,8 +174,6 @@ public class Base {
                     int hora_actual = hora.getHours();
                     int min_actual = hora.getMinutes();
                     int llegadas_tarde = rs.getInt("LLEGADAS_TARDE");
-                    
-                    
 
                     System.out.println(llegadas_tarde);
                     if ((hora_actual > h_entrada)) {
@@ -197,41 +195,71 @@ public class Base {
 
                         break;
                     }
-                    llegadasTarde="\nN° de llegadas tarde: "+(llegadas_tarde+1);
+                    llegadasTarde = "\nN° de llegadas tarde: " + (llegadas_tarde + 1);
 
+                } else if (rs.getInt("REGISTRADO") == 1) {
+                    empleadoLog = ("Empleado ya registrado");
+                    empleado_tiempo = "";
+                    llegadasTarde = "";
                 } else {
                     empleadoLog = ("No se encontro el empleado");
+                    empleado_tiempo = "";
+                    llegadasTarde = "";
                 }
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        if((empleadoLog==null||(empleado_tiempo==null||(llegadasTarde==null)))){
-            empleadoLog="No hay ";
-            empleado_tiempo="empleados ";
-            llegadasTarde="cargados";
-        } 
-        String a = empleadoLog+empleado_tiempo+llegadasTarde;
+        if ((empleadoLog == null && (empleado_tiempo == null && (llegadasTarde == null)))) {
+            empleadoLog = "No hay empleados cargados";
+            empleado_tiempo = "";
+            llegadasTarde = "";
+        }
+        String a = empleadoLog + empleado_tiempo + llegadasTarde;
         return a;
 
     }
 
-    public String nLlegadasTarde(String num) {
-        String llegadasTarde = null;
-
+    public String salir(String num) {
+        String empleadoLogN;
+        String empleadoLogA;
+        String empleadoLog = null;
+        String empleado_tiempo = null;
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
             while (rs.next()) {
-                if (rs.getString("CODIGO").equals(num)) {
-                    int nllegadas = rs.getInt("LLEGADAS_TARDE");
-                    llegadasTarde="\nN° de llegadas tarde: "+nllegadas/2;
+                if (rs.getString("CODIGO").equals(num) && (rs.getInt("REGISTRADO") == 1)) {
+                    empleadoLogN = rs.getString("NOMBRE");
+                    empleadoLogA = rs.getString("APELLIDO");
+                    empleadoLog = empleadoLogN + " " + empleadoLogA;
+                    int h_salida = (rs.getInt("H_SALIDA"));
+                    int m_salida = (rs.getInt("M_SALIDA"));
+                    Date hora = new java.util.Date();
+                    int hora_actual = hora.getHours();
+                    int min_actual = hora.getMinutes();
+                    if (hora_actual < h_salida) {
+                        empleadoLog = "La jornada laboral no finalizo";
+                        empleado_tiempo = "\nTu hora de salida es: " + h_salida + ":" + m_salida;
+                    } else if (hora_actual >= h_salida) {
+                        if (min_actual >= m_salida) {
+                            stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 0 WHERE CODIGO =  " + num);
+                            empleadoLog = "Adios";
+                            empleado_tiempo = "";
+                        } else {
+                            empleadoLog = "La jornada laboral no finalizo";
+                            empleado_tiempo = "\nTu hora de salida es: " + h_salida + ":" + m_salida;
+                        }
+                    }
+                } else {
+                    empleadoLog = "El empleado no ha llegado aun";
+                    empleado_tiempo = "";
                 }
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        return llegadasTarde;
-
+        String b = empleadoLog+empleado_tiempo;
+        return b;
     }
 
     public boolean eliminar(String eliminar) {

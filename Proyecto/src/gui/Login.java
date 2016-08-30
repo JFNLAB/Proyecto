@@ -52,12 +52,13 @@ public class Login extends javax.swing.JFrame {
         lblHoraActual = new javax.swing.JLabel();
         lblHoraNow = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnDesloguear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Log in");
         setResizable(false);
 
-        btnVerificar.setText("Verificar");
+        btnVerificar.setText("Entrar");
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerificarActionPerformed(evt);
@@ -83,6 +84,18 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FONDO.jpg"))); // NOI18N
 
+        btnDesloguear.setText("Salir");
+        btnDesloguear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesloguearActionPerformed(evt);
+            }
+        });
+        btnDesloguear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnDesloguearKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,23 +104,23 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txbVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txbVerificar, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnatras)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(btnatras)
+                                .addGap(0, 331, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(lblHoraActual, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblHoraNow)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnDesloguear, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(lblHoraActual, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblHoraNow)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, Short.MAX_VALUE))
         );
@@ -116,13 +129,15 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txbVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btnVerificar)
-                .addGap(53, 53, 53)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerificar)
+                    .addComponent(btnDesloguear))
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHoraActual)
                     .addComponent(lblHoraNow))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addComponent(btnatras)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,14 +149,14 @@ public class Login extends javax.swing.JFrame {
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
-        String Numero_a_verificar = txbVerificar.getText();
-        String datos = this.db.entrar(Numero_a_verificar); 
-        //String empleadoLog = this.db.entrar(Numero_a_verificar)[0];
-        //String empleado_tiempo = this.db.entrar(Numero_a_verificar)[1];
-       
+        if (!txbVerificar.getText().equals("")) {
+            String Numero_a_verificar = txbVerificar.getText();
+            String datos = this.db.entrar(Numero_a_verificar);
             JOptionPane.showMessageDialog(this, datos, "Empleado", JOptionPane.INFORMATION_MESSAGE);
-           
-        
+        } else {
+            JOptionPane.showMessageDialog(this, "El campo no puede estar vacio", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+        }
+
 
     }//GEN-LAST:event_btnVerificarActionPerformed
 
@@ -153,11 +168,27 @@ public class Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnatrasActionPerformed
 
+    private void btnDesloguearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesloguearActionPerformed
+        // TODO add your handling code here:
+        if (!txbVerificar.getText().equals("")) {
+            String Numero_a_verificar = txbVerificar.getText();
+            String datos = this.db.salir(Numero_a_verificar);
+            JOptionPane.showMessageDialog(this, datos, "Empleado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "El campo no puede estar vacio", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDesloguearActionPerformed
+
+    private void btnDesloguearKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDesloguearKeyPressed
+
+    }//GEN-LAST:event_btnDesloguearKeyPressed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDesloguear;
     private javax.swing.JButton btnVerificar;
     private javax.swing.JButton btnatras;
     private javax.swing.JLabel jLabel1;
@@ -166,6 +197,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txbVerificar;
     // End of variables declaration//GEN-END:variables
 public void setTimer(String text) {
-    lblHoraActual.setText(text);
+        lblHoraActual.setText(text);
     }
 }

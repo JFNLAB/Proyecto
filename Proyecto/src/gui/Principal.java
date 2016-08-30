@@ -60,7 +60,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btn2.setText("Entrar");
+        btn2.setText("Entrar/Salir");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
