@@ -7,7 +7,6 @@ package clases;
 
 import java.sql.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import java.util.Date;
 
 /**
@@ -122,22 +121,38 @@ public class Base {
                     int m_entrada = (rs.getInt("M_ENTRADA"));
                     Date hora = new java.util.Date();
                     int hora_actual = hora.getHours();
-                    int min_actuales = hora.getMinutes();
+                    int min_actual = hora.getMinutes();
+                    int llegadas_tarde = rs.getInt("LLEGADAS_TARDE");
 
+                    System.out.println(llegadas_tarde);
                     if ((hora_actual > h_entrada)) {
                         empleado_tiempo = "Estas tarde";
-                        stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 LLEGADAS_TARDE = " + (rs.getInt("LLEGADAS_TARDE") + 1) + "WHERE CODIGO =  " + num);
-                    } else if (hora_actual == h_entrada) {
-                        if (min_actuales > m_entrada) {
-                            empleado_tiempo = "Llegaste tarde";
-                            stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 LLEGADAS_TARDE = " + (rs.getInt("LLEGADAS_TARDE") + 1) + "WHERE CODIGO =  " + num);
+                        System.out.println(llegadas_tarde);
+                        stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1, LLEGADAS_TARDE = " + (llegadas_tarde + 1) + " WHERE CODIGO =  " + num);
+                        System.out.println(llegadas_tarde);
+                    } else {
+                        if (hora_actual >= h_entrada) {
+                            if (min_actual > m_entrada) {
+                                empleado_tiempo = "Llegaste tarde";
+                                System.out.println(llegadas_tarde);
+                                stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1, LLEGADAS_TARDE = " + (llegadas_tarde + 1) + " WHERE CODIGO =  " + num);
+                                System.out.println(llegadas_tarde);
+                            } else {
+                                empleado_tiempo = "Llegaste bien";
+                                System.out.println(llegadas_tarde);
+                                stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
+                                System.out.println(llegadas_tarde);
+                            }
                         } else {
                             empleado_tiempo = "Llegaste bien";
+                            System.out.println(llegadas_tarde);
                             stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
+                            System.out.println(llegadas_tarde);
                         }
+
+                        break;
                     }
 
-                    break;
                 } else {
                     empleadoLog = ("No se encontro el empleado");
                 }

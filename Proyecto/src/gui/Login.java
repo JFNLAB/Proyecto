@@ -139,14 +139,11 @@ public class Login extends javax.swing.JFrame {
         if (empleadoLog == (null)) {
             JOptionPane.showMessageDialog(this, "No hay empleados cargados", "Empleado", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, empleadoLog, "Empleado", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, empleadoLog + "\n \n" +empleado_tiempo, "Empleado", JOptionPane.INFORMATION_MESSAGE);
             if (empleado_tiempo == (null)) {
-
-            } else {
-                JOptionPane.showMessageDialog(this, empleado_tiempo, "Horario", JOptionPane.INFORMATION_MESSAGE);
+                System.err.println("ERROR EN TIEMPO DE EMPLEADO");
             }
         }
-
 
     }//GEN-LAST:event_btnVerificarActionPerformed
 
