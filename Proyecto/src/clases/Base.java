@@ -103,10 +103,10 @@ public class Base {
         }
         return lista;
     }
- 
+
     public ArrayList mostrarListaReg() {
         String auxlista = null;
-        ArrayList<String> lista3= new ArrayList();
+        ArrayList<String> lista3 = new ArrayList();
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO WHERE REGISTRADO = 1");
             while (rs.next()) {
@@ -152,13 +152,14 @@ public class Base {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
         return lista2;
-    }        
+    }
 
-    public String[] entrar(String num) {
+    public String entrar(String num) {
         String empleadoLogN;
         String empleadoLogA;
         String empleadoLog = null;
         String empleado_tiempo = null;
+        String llegadasTarde = null;
 
         try {
             ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
@@ -173,35 +174,30 @@ public class Base {
                     int hora_actual = hora.getHours();
                     int min_actual = hora.getMinutes();
                     int llegadas_tarde = rs.getInt("LLEGADAS_TARDE");
+                    
+                    
 
                     System.out.println(llegadas_tarde);
                     if ((hora_actual > h_entrada)) {
-                        empleado_tiempo = "Estas tarde";
-                        System.out.println(llegadas_tarde);
                         stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1, LLEGADAS_TARDE = " + (llegadas_tarde + 1) + " WHERE CODIGO =  " + num);
-                        System.out.println(llegadas_tarde);
+                        empleado_tiempo = "\nEstas tarde";
                     } else {
                         if (hora_actual >= h_entrada) {
                             if (min_actual > m_entrada) {
-                                empleado_tiempo = "Llegaste tarde";
-                                System.out.println(llegadas_tarde);
                                 stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1, LLEGADAS_TARDE = " + (llegadas_tarde + 1) + " WHERE CODIGO =  " + num);
-                                System.out.println(llegadas_tarde);
+                                empleado_tiempo = "\nEstas tarde";
                             } else {
-                                empleado_tiempo = "Llegaste bien";
-                                System.out.println(llegadas_tarde);
+                                empleado_tiempo = "\nLlegaste bien";
                                 stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
-                                System.out.println(llegadas_tarde);
                             }
                         } else {
-                            empleado_tiempo = "Llegaste bien";
-                            System.out.println(llegadas_tarde);
+                            empleado_tiempo = "\nLlegaste bien";
                             stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
-                            System.out.println(llegadas_tarde);
                         }
 
                         break;
                     }
+                    llegadasTarde="\nN° de llegadas tarde: "+(llegadas_tarde+1);
 
                 } else {
                     empleadoLog = ("No se encontro el empleado");
@@ -210,8 +206,31 @@ public class Base {
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
-        String[] a = {empleadoLog, empleado_tiempo};
+        if((empleadoLog==null||(empleado_tiempo==null||(llegadasTarde==null)))){
+            empleadoLog="No hay ";
+            empleado_tiempo="empleados ";
+            llegadasTarde="cargados";
+        } 
+        String a = empleadoLog+empleado_tiempo+llegadasTarde;
         return a;
+
+    }
+
+    public String nLlegadasTarde(String num) {
+        String llegadasTarde = null;
+
+        try {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO");
+            while (rs.next()) {
+                if (rs.getString("CODIGO").equals(num)) {
+                    int nllegadas = rs.getInt("LLEGADAS_TARDE");
+                    llegadasTarde="\nN° de llegadas tarde: "+nllegadas/2;
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return llegadasTarde;
 
     }
 
@@ -227,5 +246,4 @@ public class Base {
         }
         return ret;
     }
-
 }

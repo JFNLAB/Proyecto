@@ -135,16 +135,13 @@ public class Login extends javax.swing.JFrame {
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
         // TODO add your handling code here:
         String Numero_a_verificar = txbVerificar.getText();
-        String empleadoLog = this.db.entrar(Numero_a_verificar)[0];
-        String empleado_tiempo = this.db.entrar(Numero_a_verificar)[1];
-        if (empleadoLog == (null)) {
-            JOptionPane.showMessageDialog(this, "No hay empleados cargados", "Empleado", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, empleadoLog + "\n \n" +empleado_tiempo, "Empleado", JOptionPane.INFORMATION_MESSAGE);
-            if (empleado_tiempo == (null)) {
-                System.err.println("ERROR EN TIEMPO DE EMPLEADO");
-            }
-        }
+        String datos = this.db.entrar(Numero_a_verificar); 
+        //String empleadoLog = this.db.entrar(Numero_a_verificar)[0];
+        //String empleado_tiempo = this.db.entrar(Numero_a_verificar)[1];
+       
+            JOptionPane.showMessageDialog(this, datos, "Empleado", JOptionPane.INFORMATION_MESSAGE);
+           
+        
 
     }//GEN-LAST:event_btnVerificarActionPerformed
 
