@@ -38,16 +38,18 @@ public class Codigobarra extends javax.swing.JFrame {
         lblcode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Se genero tu codigo de barras");
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblcode, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(lblcode, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblcode, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(lblcode, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
         );
 
         pack();
@@ -59,7 +61,7 @@ public class Codigobarra extends javax.swing.JFrame {
      */
     
     private void load(){
-        ImageIcon icon = new ImageIcon("/home/nico/Escritorio/Programacion/Proyecto/Proyecto/"+nombre+"_"+apellido+".png");
+        ImageIcon icon = new ImageIcon("src/codigos/"+nombre+"_"+apellido+".png");
         lblcode.setIcon(icon);
 
     }     
