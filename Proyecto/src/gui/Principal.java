@@ -155,7 +155,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.db.mostrarLista();
 
-        Informe informe = new Informe();
+        Informe informe = new Informe(db);
         informe.setVisible(true);
         this.db.mostrarLista();
 

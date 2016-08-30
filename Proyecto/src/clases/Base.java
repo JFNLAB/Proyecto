@@ -103,6 +103,56 @@ public class Base {
         }
         return lista;
     }
+ 
+    public ArrayList mostrarListaReg() {
+        String auxlista = null;
+        ArrayList<String> lista3= new ArrayList();
+        try {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO WHERE REGISTRADO = 1");
+            while (rs.next()) {
+
+                String nombre = rs.getString("NOMBRE");
+                while (nombre.length() < 10) {
+                    nombre += " ";
+                }
+                String apellido = rs.getString("APELLIDO");
+                while (apellido.length() < 15) {
+                    apellido += " ";
+                }
+                auxlista = (nombre + apellido);
+                lista3.add(auxlista);
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return lista3;
+    }
+
+    public ArrayList mostrarListaNoReg() {
+        String auxlista = null;
+        ArrayList<String> lista2 = new ArrayList();
+        try {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLEADO WHERE REGISTRADO = 0");
+            while (rs.next()) {
+
+                String nombre = rs.getString("NOMBRE");
+                while (nombre.length() < 10) {
+                    nombre += " ";
+                }
+                String apellido = rs.getString("APELLIDO");
+                while (apellido.length() < 15) {
+                    apellido += " ";
+                }
+                auxlista = (nombre + apellido);
+                lista2.add(auxlista);
+            }
+
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        return lista2;
+    }        
 
     public String[] entrar(String num) {
         String empleadoLogN;

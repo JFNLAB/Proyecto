@@ -5,17 +5,24 @@
  */
 package gui;
 
+import clases.Base;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author feli
  */
 public class Informe extends javax.swing.JFrame {
+    private Base db;
 
     /**
      * Creates new form Informe
      */
-    public Informe() {
+    public Informe(Base db) {
         initComponents();
+        this.db = db;
+        actualizar();
     }
 
     /**
@@ -28,9 +35,9 @@ public class Informe extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listReg = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        listNReg = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -40,9 +47,11 @@ public class Informe extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jScrollPane1.setViewportView(jList1);
+        listReg.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        jScrollPane1.setViewportView(listReg);
 
-        jScrollPane2.setViewportView(jList2);
+        listNReg.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        jScrollPane2.setViewportView(listNReg);
 
         jButton1.setText("Actualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,9 +138,25 @@ public class Informe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> listNReg;
+    private javax.swing.JList<String> listReg;
     // End of variables declaration//GEN-END:variables
+
+    public void actualizar() {
+        DefaultListModel listModel = new DefaultListModel();
+        listReg.setModel(listModel);
+        ArrayList<String> a = db.mostrarListaReg();
+        for (int i = 0; i < a.size(); i++) {
+            listModel.addElement(a.get(i));
+            
+        DefaultListModel listModel2 = new DefaultListModel();
+        listNReg.setModel(listModel2);
+        ArrayList<String> b = db.mostrarListaNoReg();
+        for (int j = 0; j < b.size(); j++) {
+            listModel2.addElement(b.get(j));    
+        }
+    }
+    }
 }
