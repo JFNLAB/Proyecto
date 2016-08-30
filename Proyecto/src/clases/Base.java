@@ -250,13 +250,20 @@ public class Base {
                             empleado_tiempo = "\nTu hora de salida es: " + h_salida + ":" + m_salida;
                         }
                     }
-                } else {
+                } else if (rs.getInt("REGISTRADO") == 0){
                     empleadoLog = "El empleado no ha llegado aun";
+                    empleado_tiempo = "";
+                }else{
+                    empleadoLog = ("No se encontro el empleado");
                     empleado_tiempo = "";
                 }
             }
         } catch (SQLException e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        if ((empleadoLog == null && (empleado_tiempo == null ))) {
+            empleadoLog = "No hay empleados cargados";
+            empleado_tiempo = "";
         }
         String b = empleadoLog+empleado_tiempo;
         return b;
