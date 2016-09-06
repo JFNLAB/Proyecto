@@ -283,24 +283,23 @@ public class Cargar_empleado extends javax.swing.JFrame {
         String errores = "";
         String nombre = txbNombre.getText();
         String apellido = txbApellido.getText();
-        String edad = txbEdad.getText();
+        
+        //String edad = txbEdad.getText();
         String email = txbEmail.getText();
         String direccion = txbDireccion.getText();
         String salario = txbSalario.getText();
-        int hora_entrada = Integer.parseInt(""+ spnHoraE.getValue());
-        int min_entrada = Integer.parseInt(""+ spnMinE.getValue());
-        int hora_salida = Integer.parseInt(""+ spnHoraS.getValue());
-        int min_salida = Integer.parseInt(""+ spnMinS.getValue());
-        
+        int hora_entrada = Integer.parseInt("" + spnHoraE.getValue());
+        int min_entrada = Integer.parseInt("" + spnMinE.getValue());
+        int hora_salida = Integer.parseInt("" + spnHoraS.getValue());
+        int min_salida = Integer.parseInt("" + spnMinS.getValue());
+
         int numRandom = (int) Math.floor(Math.random() * (000000000 - 999999999) + 999999999);
         String codigo = numRandom + "";
 
         if (nombre.equals("") || (apellido.equals("") || direccion.equals("") || (email.equals("") || (salario.equals(""))))) {
             JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacios");
         } else {
-            Empleado auxEmpleado = new Empleado(nombre, apellido, direccion, edad, email, salario, codigo, 0);
-            Horario auxHorario = new Horario(hora_entrada,min_entrada,hora_salida,min_salida);
-            Asistencia auxAsistencia = new Asistencia(0,0,0);
+
             try {
                 float b = Float.parseFloat(salario);
             } catch (NumberFormatException e) {
@@ -309,18 +308,23 @@ public class Cargar_empleado extends javax.swing.JFrame {
                 txbSalario.setText("");
             }
             try {
-                float c = Integer.parseInt(edad);
+                int c = Integer.parseInt(txbEdad.getText());
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "ERROR - Edad no es un numero válido");
                 errores += "2";
                 txbEdad.setText("");
 
             }
+            int edad = Integer.parseInt(txbEdad.getText());
+            
             if (errores.length() > 0) {
 
             } else {
-                boolean a = this.db.guardar(auxEmpleado.getCodigo(), auxEmpleado.getNombre(), auxEmpleado.getApellido(), auxEmpleado.getEdad(), auxEmpleado.getEmail(), auxEmpleado.getDireccion(), auxEmpleado.getSalario(), auxHorario.getHora_inicio(), auxHorario.getMin_inicio(), auxHorario.getHora_fin(), auxHorario.getMin_fin());
+                Empleado auxEmpleado = new Empleado(nombre, apellido, direccion, edad, email, salario, codigo, 0);
+                Horario auxHorario = new Horario(hora_entrada, min_entrada, hora_salida, min_salida);
                 
+                boolean a = this.db.guardar(auxEmpleado, auxHorario);
+
                 txbNombre.setText("");
                 txbApellido.setText("");
                 txbEdad.setText("");
@@ -331,7 +335,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
                 spnMinE.setValue(0);
                 spnHoraS.setValue(0);
                 spnMinS.setValue(0);
-                
+
                 if (a) {
                     try {
                         this.barrita.CreateBarcode(codigo, nombre, apellido);
@@ -342,7 +346,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Empleado cargado con exito");
                     Codigobarra codebarr = new Codigobarra(nombre, apellido);
                     codebarr.setVisible(true);
-                }else {
+                } else {
                     JOptionPane.showMessageDialog(this, "ERROR AL CARGAR EMPLEADO");
                 }
             }
@@ -360,7 +364,7 @@ public class Cargar_empleado extends javax.swing.JFrame {
     }//GEN-LAST:event_txbEmailActionPerformed
 
     private void spnHoraEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnHoraEMouseClicked
-        if (spnHoraE.getValue().equals(23)){
+        if (spnHoraE.getValue().equals(23)) {
             spnHoraE.setValue(0);
         }
     }//GEN-LAST:event_spnHoraEMouseClicked

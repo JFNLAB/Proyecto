@@ -28,7 +28,7 @@ public class Base {
                     + " CODIGO TEXT NOT NULL, "
                     + " NOMBRE TEXT NOT NULL, "
                     + " APELLIDO TEXT NOT NULL, "
-                    + " EDAD TEXT NOT NULL,"
+                    + " EDAD INTEGER NOT NULL,"
                     + " EMAIL TEXT NOT NULL, "
                     + " DIRECCION TEXT NOT NULL, "
                     + " SALARIO TEXT NOT NULL,"
@@ -46,8 +46,19 @@ public class Base {
         }
     }
 
-    public boolean guardar(String codigo, String nombre, String apellido, String edad, String email, String direccion, String salario, int h_entrada, int m_entrada, int h_salida, int m_salida) {
+    public boolean guardar(Empleado auxEmpleado,Horario auxHorario) {
         boolean ret = false;
+        String codigo = auxEmpleado.getCodigo();
+        String nombre = auxEmpleado.getNombre();
+        String apellido = auxEmpleado.getApellido();
+        int edad = auxEmpleado.getEdad();
+        String email = auxEmpleado.getEmail();
+        String direccion = auxEmpleado.getDireccion();
+        String salario = auxEmpleado.getSalario();
+        int h_entrada = auxHorario.getHora_inicio();
+        int m_entrada = auxHorario.getMin_inicio();
+        int h_salida = auxHorario.getHora_fin();
+        int m_salida = auxHorario.getMin_fin();
         try {
             stmt.execute("INSERT INTO empleado (CODIGO,NOMBRE,APELLIDO,EDAD,EMAIL,DIRECCION,SALARIO,H_ENTRADA,M_ENTRADA,H_SALIDA,M_SALIDA,REGISTRADO,LLEGADAS_TARDE) VALUES('" + codigo + "', '" + nombre + "', '" + apellido + "', '" + edad + "', '" + email + "', '" + direccion + "', '" + salario + "' , '" + h_entrada + "' , '" + m_entrada + "' , '" + h_salida + "', '" + m_salida + "','" + 0 + "' , '" + 0 + "')");
             ret = true;
@@ -190,10 +201,12 @@ public class Base {
                                 empleado_tiempo = "\nEstas tarde";
                             } else {
                                 empleado_tiempo = "\nLlegaste bien";
+                                llegadasTarde= "";
                                 stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
                             }
                         } else {
                             empleado_tiempo = "\nLlegaste bien";
+                            llegadasTarde= "";
                             stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
                         }
 
