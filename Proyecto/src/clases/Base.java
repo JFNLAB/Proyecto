@@ -206,7 +206,7 @@ public class Base {
                             }
                         } else {
                             empleado_tiempo = "\nLlegaste bien";
-                            llegadasTarde= "";
+                            llegadasTarde= "";  
                             stmt.executeUpdate("UPDATE EMPLEADO SET REGISTRADO = 1 WHERE CODIGO =  " + num);
                         }
 

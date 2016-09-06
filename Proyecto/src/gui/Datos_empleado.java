@@ -176,12 +176,19 @@ public class Datos_empleado extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
             String auxempleado = lista.getSelectedValue();
             String auxcodigo = auxempleado.substring(0, 9);
             System.out.println(auxcodigo);
-            db.eliminar(auxcodigo);
-            System.out.println(lista.getSelectedValue());
-            actualizar();
+            if (JOptionPane.showConfirmDialog(null, "Esta seguro que desea eliminar?", "Confirmacion", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
+                db.eliminar(auxcodigo);
+                System.out.println(lista.getSelectedValue());
+                actualizar();
+            }
+            else {
+                
+            }
+
         } catch (RuntimeException e) {
             JOptionPane.showMessageDialog(this, "No hay elemento seleccionado");
 
